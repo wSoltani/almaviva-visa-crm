@@ -1,0 +1,28 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "phoneActivation": {
+      "home": {
+        "title": "Phone Activations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Phone Activation",
+        "createOrEditLabel": "Create or edit a Phone Activation",
+        "search": "Search for Phone Activation",
+        "notFound": "No Phone Activations found"
+      },
+      "created": "A new Phone Activation is created with identifier {{ param }}",
+      "updated": "A Phone Activation is updated with identifier {{ param }}",
+      "deleted": "A Phone Activation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Phone Activation {{ id }}?"
+      },
+      "detail": {
+        "title": "Phone Activation"
+      },
+      "id": "Id",
+      "isActivated": "Is Activated",
+      "activationKey": "Activation Key",
+      "expirationDate": "Expiration Date",
+      "deleted": "Deleted"
+    }
+  }
+}

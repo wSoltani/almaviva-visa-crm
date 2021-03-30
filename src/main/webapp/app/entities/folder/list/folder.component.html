@@ -1,0 +1,130 @@
+<div>
+  <h2 id="page-heading" data-cy="FolderHeading">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.folder.home.title">Folders</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="almavivaVisaServiceCrmApp.folder.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-folder"
+        [routerLink]="['/folder/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="almavivaVisaServiceCrmApp.folder.home.createLabel"> Create a new Folder </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="searchForm" class="form-inline">
+        <div class="input-group w-100 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="currentSearch"
+            id="currentSearch"
+            name="currentSearch"
+            placeholder="{{ 'almavivaVisaServiceCrmApp.folder.home.search' | translate }}"
+          />
+
+          <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+            <fa-icon icon="search"></fa-icon>
+          </button>
+
+          <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="folders?.length === 0">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.folder.home.notFound">No folders found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="folders && folders.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.folderId">Folder Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.paymentMethod">Payment Method</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.waitingRoom">Waiting Room</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.serviceType">Service Type</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.isAvsFree">Is Avs Free</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.deleted">Deleted</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.appointment">Appointment</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.site">Site</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.service">Service</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.visa">Visa</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let folder of folders; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/folder', folder.id, 'view']">{{ folder.id }}</a>
+          </td>
+          <td>{{ folder.folderId }}</td>
+          <td>{{ folder.status }}</td>
+          <td>{{ folder.paymentMethod }}</td>
+          <td>{{ folder.waitingRoom }}</td>
+          <td>{{ folder.serviceType }}</td>
+          <td>{{ folder.isAvsFree }}</td>
+          <td>{{ folder.deleted }}</td>
+          <td>
+            <div *ngIf="folder.appointment">
+              <a [routerLink]="['/appointment', folder.appointment?.id, 'view']">{{ folder.appointment?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="folder.site">
+              <a [routerLink]="['/site', folder.site?.id, 'view']">{{ folder.site?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <span *ngFor="let service of folder.services; let last = last">
+              <a class="form-control-static" [routerLink]="['/av-service', service.id, 'view']">{{ service.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <div *ngIf="folder.visa">
+              <a [routerLink]="['/visa', folder.visa?.id, 'view']">{{ folder.visa?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/folder', folder.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/folder', folder.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(folder)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

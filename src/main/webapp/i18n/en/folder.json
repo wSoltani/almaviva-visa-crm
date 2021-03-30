@@ -1,0 +1,35 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "folder": {
+      "home": {
+        "title": "Folders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Folder",
+        "createOrEditLabel": "Create or edit a Folder",
+        "search": "Search for Folder",
+        "notFound": "No Folders found"
+      },
+      "created": "A new Folder is created with identifier {{ param }}",
+      "updated": "A Folder is updated with identifier {{ param }}",
+      "deleted": "A Folder is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Folder {{ id }}?"
+      },
+      "detail": {
+        "title": "Folder"
+      },
+      "id": "Id",
+      "folderId": "Folder Id",
+      "status": "Status",
+      "paymentMethod": "Payment Method",
+      "waitingRoom": "Waiting Room",
+      "serviceType": "Service Type",
+      "isAvsFree": "Is Avs Free",
+      "deleted": "Deleted",
+      "appointment": "Appointment",
+      "site": "Site",
+      "service": "Service",
+      "visa": "Visa"
+    }
+  }
+}

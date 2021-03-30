@@ -1,0 +1,28 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "visaDocuments": {
+      "home": {
+        "title": "VisaDocuments",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Visa Documents",
+        "createOrEditLabel": "Créer ou éditer un Visa Documents",
+        "search": "Recherche pour Visa Documents",
+        "notFound": "Aucun Visa Documents trouvé"
+      },
+      "created": "Un nouveau Visa Documents a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Visa Documents avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Visa Documents avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Visa Documents {{ id }} ?"
+      },
+      "detail": {
+        "title": "Visa Documents"
+      },
+      "id": "Id",
+      "title": "Title",
+      "description": "Description",
+      "deleted": "Deleted",
+      "visa": "Visa"
+    }
+  }
+}

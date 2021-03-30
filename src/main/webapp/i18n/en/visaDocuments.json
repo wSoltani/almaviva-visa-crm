@@ -1,0 +1,28 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "visaDocuments": {
+      "home": {
+        "title": "Visa Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Visa Documents",
+        "createOrEditLabel": "Create or edit a Visa Documents",
+        "search": "Search for Visa Documents",
+        "notFound": "No Visa Documents found"
+      },
+      "created": "A new Visa Documents is created with identifier {{ param }}",
+      "updated": "A Visa Documents is updated with identifier {{ param }}",
+      "deleted": "A Visa Documents is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Visa Documents {{ id }}?"
+      },
+      "detail": {
+        "title": "Visa Documents"
+      },
+      "id": "Id",
+      "title": "Title",
+      "description": "Description",
+      "deleted": "Deleted",
+      "visa": "Visa"
+    }
+  }
+}

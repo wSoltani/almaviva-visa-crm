@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="SiteHeading">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.site.home.title">Sites</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="almavivaVisaServiceCrmApp.site.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-site"
+        [routerLink]="['/site/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="almavivaVisaServiceCrmApp.site.home.createLabel"> Create a new Site </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="searchForm" class="form-inline">
+        <div class="input-group w-100 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="currentSearch"
+            id="currentSearch"
+            name="currentSearch"
+            placeholder="{{ 'almavivaVisaServiceCrmApp.site.home.search' | translate }}"
+          />
+
+          <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+            <fa-icon icon="search"></fa-icon>
+          </button>
+
+          <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="sites?.length === 0">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.site.home.notFound">No sites found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="sites && sites.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.site.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.site.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.site.imgUrl">Img Url</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.site.address">Address</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.site.deleted">Deleted</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let site of sites; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/site', site.id, 'view']">{{ site.id }}</a>
+          </td>
+          <td>{{ site.name }}</td>
+          <td>{{ site.imgUrl }}</td>
+          <td>{{ site.address }}</td>
+          <td>{{ site.deleted }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/site', site.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/site', site.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(site)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

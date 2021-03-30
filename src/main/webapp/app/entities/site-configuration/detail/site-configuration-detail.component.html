@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="siteConfiguration">
+      <h2 data-cy="siteConfigurationDetailsHeading">
+        <span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.detail.title">Site Configuration</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.id">Id</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.openingTime">Opening Time</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.openingTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.closingTime">Closing Time</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.closingTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentTime">Appointment Time</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.appointmentTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentQuota">Appointment Quota</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.appointmentQuota }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentQuotaWeb">Appointment Quota Web</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.appointmentQuotaWeb }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.information">Information</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.information }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.dailyMessage">Daily Message</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.dailyMessage }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.prestationMargin">Prestation Margin</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.prestationMargin }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.simultaneous">Simultaneous</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.simultaneous }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.isSpecific">Is Specific</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.isSpecific }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ siteConfiguration.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.site">Site</span></dt>
+        <dd>
+          <div *ngIf="siteConfiguration.site">
+            <a [routerLink]="['/site', siteConfiguration.site?.id, 'view']">{{ siteConfiguration.site?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/site-configuration', siteConfiguration.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

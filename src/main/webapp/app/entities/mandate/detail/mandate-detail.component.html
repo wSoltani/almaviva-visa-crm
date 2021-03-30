@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mandate">
+      <h2 data-cy="mandateDetailsHeading"><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.detail.title">Mandate</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.id">Id</span></dt>
+        <dd>
+          <span>{{ mandate.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.code">Code</span></dt>
+        <dd>
+          <span>{{ mandate.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.location">Location</span></dt>
+        <dd>
+          <span>{{ mandate.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.amount">Amount</span></dt>
+        <dd>
+          <span>{{ mandate.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.date">Date</span></dt>
+        <dd>
+          <span>{{ mandate.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.isAVSPaiment">Is AVS Paiment</span></dt>
+        <dd>
+          <span>{{ mandate.isAVSPaiment }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ mandate.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.mandate.folder">Folder</span></dt>
+        <dd>
+          <div *ngIf="mandate.folder">
+            <a [routerLink]="['/folder', mandate.folder?.id, 'view']">{{ mandate.folder?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mandate', mandate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

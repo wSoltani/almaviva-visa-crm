@@ -1,0 +1,137 @@
+<div>
+  <h2 id="page-heading" data-cy="SiteConfigurationHeading">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.home.title">Site Configurations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-site-configuration"
+        [routerLink]="['/site-configuration/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.home.createLabel">
+          Create a new Site Configuration
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="searchForm" class="form-inline">
+        <div class="input-group w-100 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="currentSearch"
+            id="currentSearch"
+            name="currentSearch"
+            placeholder="{{ 'almavivaVisaServiceCrmApp.siteConfiguration.home.search' | translate }}"
+          />
+
+          <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+            <fa-icon icon="search"></fa-icon>
+          </button>
+
+          <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="siteConfigurations?.length === 0">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.home.notFound">No siteConfigurations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="siteConfigurations && siteConfigurations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.startDate">Start Date</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.endDate">End Date</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.openingTime">Opening Time</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.closingTime">Closing Time</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentTime">Appointment Time</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentQuota">Appointment Quota</span></th>
+          <th scope="col">
+            <span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentQuotaWeb">Appointment Quota Web</span>
+          </th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.information">Information</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.dailyMessage">Daily Message</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.prestationMargin">Prestation Margin</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.simultaneous">Simultaneous</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.isSpecific">Is Specific</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.deleted">Deleted</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.site">Site</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let siteConfiguration of siteConfigurations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/site-configuration', siteConfiguration.id, 'view']">{{ siteConfiguration.id }}</a>
+          </td>
+          <td>{{ siteConfiguration.startDate | formatMediumDatetime }}</td>
+          <td>{{ siteConfiguration.endDate | formatMediumDatetime }}</td>
+          <td>{{ siteConfiguration.openingTime }}</td>
+          <td>{{ siteConfiguration.closingTime }}</td>
+          <td>{{ siteConfiguration.appointmentTime }}</td>
+          <td>{{ siteConfiguration.appointmentQuota }}</td>
+          <td>{{ siteConfiguration.appointmentQuotaWeb }}</td>
+          <td>{{ siteConfiguration.information }}</td>
+          <td>{{ siteConfiguration.dailyMessage }}</td>
+          <td>{{ siteConfiguration.prestationMargin }}</td>
+          <td>{{ siteConfiguration.simultaneous }}</td>
+          <td>{{ siteConfiguration.isSpecific }}</td>
+          <td>{{ siteConfiguration.deleted }}</td>
+          <td>
+            <div *ngIf="siteConfiguration.site">
+              <a [routerLink]="['/site', siteConfiguration.site?.id, 'view']">{{ siteConfiguration.site?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/site-configuration', siteConfiguration.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/site-configuration', siteConfiguration.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(siteConfiguration)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

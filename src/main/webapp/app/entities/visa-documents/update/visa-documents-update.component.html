@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-visa-documents-heading"
+        data-cy="VisaDocumentsCreateUpdateHeading"
+        jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.home.createOrEditLabel"
+      >
+        Create or edit a Visa Documents
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.deleted" for="field_deleted"
+            >Deleted</label
+          >
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.visa" for="field_visas">Visa</label>
+          <select class="form-control" id="field_visas" data-cy="visa" multiple name="visas" formControlName="visas">
+            <option
+              [ngValue]="getSelectedVisa(visaOption, editForm.get('visas')!.value)"
+              *ngFor="let visaOption of visasSharedCollection; trackBy: trackVisaById"
+            >
+              {{ visaOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

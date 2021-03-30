@@ -1,0 +1,30 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "site": {
+      "home": {
+        "title": "Sites",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Site",
+        "createOrEditLabel": "Genera o modifica un Site",
+        "search": "Cerca Site",
+        "notFound": "No Sites found"
+      },
+      "created": "&Egrave; stato generato un nuovo Site con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Site identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Site con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Site {{ id }}?"
+      },
+      "detail": {
+        "title": "Site"
+      },
+      "id": "Id",
+      "name": "Name",
+      "imgUrl": "Img Url",
+      "address": "Address",
+      "deleted": "Deleted",
+      "siteConfiguration": "Site Configuration",
+      "siteService": "Site Service"
+    }
+  }
+}

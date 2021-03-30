@@ -1,0 +1,244 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-site-configuration-heading"
+        data-cy="SiteConfigurationCreateUpdateHeading"
+        jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.home.createOrEditLabel"
+      >
+        Create or edit a Site Configuration
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.startDate" for="field_startDate"
+            >Start Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="datetime-local"
+              class="form-control"
+              name="startDate"
+              formControlName="startDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.endDate" for="field_endDate"
+            >End Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="datetime-local"
+              class="form-control"
+              name="endDate"
+              formControlName="endDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.openingTime" for="field_openingTime"
+            >Opening Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="openingTime"
+            id="field_openingTime"
+            data-cy="openingTime"
+            formControlName="openingTime"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.closingTime" for="field_closingTime"
+            >Closing Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="closingTime"
+            id="field_closingTime"
+            data-cy="closingTime"
+            formControlName="closingTime"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentTime"
+            for="field_appointmentTime"
+            >Appointment Time</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="appointmentTime"
+            id="field_appointmentTime"
+            data-cy="appointmentTime"
+            formControlName="appointmentTime"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentQuota"
+            for="field_appointmentQuota"
+            >Appointment Quota</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="appointmentQuota"
+            id="field_appointmentQuota"
+            data-cy="appointmentQuota"
+            formControlName="appointmentQuota"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.appointmentQuotaWeb"
+            for="field_appointmentQuotaWeb"
+            >Appointment Quota Web</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="appointmentQuotaWeb"
+            id="field_appointmentQuotaWeb"
+            data-cy="appointmentQuotaWeb"
+            formControlName="appointmentQuotaWeb"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.information" for="field_information"
+            >Information</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="information"
+            id="field_information"
+            data-cy="information"
+            formControlName="information"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.dailyMessage" for="field_dailyMessage"
+            >Daily Message</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="dailyMessage"
+            id="field_dailyMessage"
+            data-cy="dailyMessage"
+            formControlName="dailyMessage"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.prestationMargin"
+            for="field_prestationMargin"
+            >Prestation Margin</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="prestationMargin"
+            id="field_prestationMargin"
+            data-cy="prestationMargin"
+            formControlName="prestationMargin"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.simultaneous" for="field_simultaneous"
+            >Simultaneous</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="simultaneous"
+            id="field_simultaneous"
+            data-cy="simultaneous"
+            formControlName="simultaneous"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.isSpecific" for="field_isSpecific"
+            >Is Specific</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isSpecific"
+            id="field_isSpecific"
+            data-cy="isSpecific"
+            formControlName="isSpecific"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.deleted" for="field_deleted"
+            >Deleted</label
+          >
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.siteConfiguration.site" for="field_site">Site</label>
+          <select class="form-control" id="field_site" data-cy="site" name="site" formControlName="site">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="siteOption.id === editForm.get('site')!.value?.id ? editForm.get('site')!.value : siteOption"
+              *ngFor="let siteOption of sitesSharedCollection; trackBy: trackSiteById"
+            >
+              {{ siteOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

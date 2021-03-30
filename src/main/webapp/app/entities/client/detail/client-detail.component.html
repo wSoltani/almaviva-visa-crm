@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="client">
+      <h2 data-cy="clientDetailsHeading"><span jhiTranslate="almavivaVisaServiceCrmApp.client.detail.title">Client</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.id">Id</span></dt>
+        <dd>
+          <span>{{ client.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.phone">Phone</span></dt>
+        <dd>
+          <span>{{ client.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.email">Email</span></dt>
+        <dd>
+          <span>{{ client.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.password">Password</span></dt>
+        <dd>
+          <span>{{ client.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ client.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ client.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ client.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.phoneActivation">Phone Activation</span></dt>
+        <dd>
+          <div *ngIf="client.phoneActivation">
+            <a [routerLink]="['/phone-activation', client.phoneActivation?.id, 'view']">{{ client.phoneActivation?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.emailActivation">Email Activation</span></dt>
+        <dd>
+          <div *ngIf="client.emailActivation">
+            <a [routerLink]="['/email-activation', client.emailActivation?.id, 'view']">{{ client.emailActivation?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.client.internalUser">Internal User</span></dt>
+        <dd>
+          <span>{{ client.internalUser?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/client', client.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

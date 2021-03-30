@@ -1,0 +1,31 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "mandate": {
+      "home": {
+        "title": "Mandates",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Mandate",
+        "createOrEditLabel": "Créer ou éditer un Mandate",
+        "search": "Recherche pour Mandate",
+        "notFound": "Aucun Mandate trouvé"
+      },
+      "created": "Un nouveau Mandate a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mandate avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mandate avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Mandate {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mandate"
+      },
+      "id": "Id",
+      "code": "Code",
+      "location": "Location",
+      "amount": "Amount",
+      "date": "Date",
+      "isAVSPaiment": "Is AVS Paiment",
+      "deleted": "Deleted",
+      "folder": "Folder"
+    }
+  }
+}

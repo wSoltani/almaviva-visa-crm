@@ -1,0 +1,117 @@
+<div>
+  <h2 id="page-heading" data-cy="DayOffHeading">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.home.title">Day Offs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-day-off"
+        [routerLink]="['/day-off/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="almavivaVisaServiceCrmApp.dayOff.home.createLabel"> Create a new Day Off </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="searchForm" class="form-inline">
+        <div class="input-group w-100 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="currentSearch"
+            id="currentSearch"
+            name="currentSearch"
+            placeholder="{{ 'almavivaVisaServiceCrmApp.dayOff.home.search' | translate }}"
+          />
+
+          <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+            <fa-icon icon="search"></fa-icon>
+          </button>
+
+          <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="dayOffs?.length === 0">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.home.notFound">No dayOffs found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="dayOffs && dayOffs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.date">Date</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.isHoliday">Is Holiday</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.deleted">Deleted</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.siteConfiguration">Site Configuration</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dayOff of dayOffs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/day-off', dayOff.id, 'view']">{{ dayOff.id }}</a>
+          </td>
+          <td>{{ dayOff.title }}</td>
+          <td>{{ dayOff.description }}</td>
+          <td>{{ dayOff.date | formatMediumDate }}</td>
+          <td>{{ dayOff.isHoliday }}</td>
+          <td>{{ dayOff.deleted }}</td>
+          <td>
+            <div *ngIf="dayOff.siteConfiguration">
+              <a [routerLink]="['/site-configuration', dayOff.siteConfiguration?.id, 'view']">{{ dayOff.siteConfiguration?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/day-off', dayOff.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/day-off', dayOff.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(dayOff)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

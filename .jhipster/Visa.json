@@ -1,0 +1,50 @@
+{
+  "name": "Visa",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "folder",
+      "otherEntityRelationshipName": "visa",
+      "relationshipName": "folder"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "visaDocuments",
+      "otherEntityRelationshipName": "visa",
+      "relationshipName": "document",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "visa",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210330132251"
+}

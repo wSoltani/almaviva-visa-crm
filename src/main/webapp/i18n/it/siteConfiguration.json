@@ -1,0 +1,38 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "siteConfiguration": {
+      "home": {
+        "title": "SiteConfigurations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Site Configuration",
+        "createOrEditLabel": "Genera o modifica un Site Configuration",
+        "search": "Cerca Site Configuration",
+        "notFound": "No Site Configurations found"
+      },
+      "created": "&Egrave; stato generato un nuovo Site Configuration con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Site Configuration identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Site Configuration con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Site Configuration {{ id }}?"
+      },
+      "detail": {
+        "title": "Site Configuration"
+      },
+      "id": "Id",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "openingTime": "Opening Time",
+      "closingTime": "Closing Time",
+      "appointmentTime": "Appointment Time",
+      "appointmentQuota": "Appointment Quota",
+      "appointmentQuotaWeb": "Appointment Quota Web",
+      "information": "Information",
+      "dailyMessage": "Daily Message",
+      "prestationMargin": "Prestation Margin",
+      "simultaneous": "Simultaneous",
+      "isSpecific": "Is Specific",
+      "deleted": "Deleted",
+      "site": "Site"
+    }
+  }
+}

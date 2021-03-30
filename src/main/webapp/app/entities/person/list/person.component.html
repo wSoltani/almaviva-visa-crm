@@ -1,0 +1,321 @@
+<div>
+  <h2 id="page-heading" data-cy="PersonHeading">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.person.home.title">People</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="almavivaVisaServiceCrmApp.person.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-person"
+        [routerLink]="['/person/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="almavivaVisaServiceCrmApp.person.home.createLabel"> Create a new Person </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="searchForm" class="form-inline">
+        <div class="input-group w-100 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="currentSearch"
+            id="currentSearch"
+            name="currentSearch"
+            placeholder="{{ 'almavivaVisaServiceCrmApp.person.home.search' | translate }}"
+          />
+
+          <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+            <fa-icon icon="search"></fa-icon>
+          </button>
+
+          <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="people?.length === 0">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.person.home.notFound">No people found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="people && people.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.idMoyenSub">Id Moyen Sub</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomPrec">Nom Prec</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.lieuNaissance">Lieu Naissance</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatCivilWeb">Etat Civil Web</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nationPrec">Nation Prec</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nationActuel">Nation Actuel</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomAutor">Nom Autor</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.prenomAutor">Prenom Autor</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresAutor">Adres Autor</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.natiAutor">Nati Autor</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.numCin">Num Cin</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.numDoc">Num Doc</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivDoc">Date Deliv Doc</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateExpDoc">Date Exp Doc</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.delivParDoc">Deliv Par Doc</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseDomicile">Adresse Domicile</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseEmail">Adresse Email</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.isResident">Is Resident</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.titreSejour">Titre Sejour</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateExpSejour">Date Exp Sejour</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.numTel">Num Tel</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.adressEmp">Adress Emp</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.telEmp">Tel Emp</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomEtab">Nom Etab</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.adressEtablis">Adress Etablis</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dureeSejour">Duree Sejour</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatMemDes">Etat Mem Des</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatMemPremier">Etat Mem Premier</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nombreEntre">Nombre Entre</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.oldVisaExiste">Old Visa Existe</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivDebut">Date Deliv Debut</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivFin">Date Deliv Fin</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.isEmprDegit">Is Empr Degit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateEmpreint">Date Empreint</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivAutor">Date Deliv Autor</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateValideAtorDebut">Date Valide Ator Debut</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateValideAutorFin">Date Valide Autor Fin</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateArrivPrevu">Date Arriv Prevu</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDepartPrevu">Date Depart Prevu</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descInvite">Desc Invite</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseInvit">Adresse Invit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.telInvite">Tel Invite</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.emailInvite">Email Invite</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomEntreprise">Nom Entreprise</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseEntreprise">Adresse Entreprise</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.contactEntreprise">Contact Entreprise</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descContactEntreprise">Desc Contact Entreprise</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.financeFraisVoyage">Finance Frais Voyage</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomCit">Nom Cit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.prenomCit">Prenom Cit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateNaissCit">Date Naiss Cit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nationCit">Nation Cit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.numDocCit">Num Doc Cit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.lieuForm">Lieu Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateForm">Date Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descPhotoForm">Desc Photo Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm1">Desc Form 1</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm2">Desc Form 2</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.emailComp">Email Comp</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomForm">Nom Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.prenomForm">Prenom Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.idPaysForm">Id Pays Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm3">Desc Form 3</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm4">Desc Form 4</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.autreetatcivil">Autreetatcivil</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.autredoc">Autredoc</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.autreobj">Autreobj</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.autrefris">Autrefris</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descpromot">Descpromot</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.descinvit">Descinvit</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.isVisa">Is Visa</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateaut">Dateaut</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.datecreatefo">Datecreatefo</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.telForm">Tel Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.professionForm">Profession Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.referenceForm">Reference Form</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.otherNation">Other Nation</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.telAutori">Tel Autori</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.emailAutori">Email Autori</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.numSejour">Num Sejour</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomEmp">Nom Emp</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.numEmp">Num Emp</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.villeDestination">Ville Destination</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.infoObjeVoyage">Info Obje Voyage</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.autoDelivrePar">Auto Delivre Par</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.otherMoyen">Other Moyen</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.otherLien">Other Lien</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.faxInvite">Fax Invite</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.faxEntreprise">Fax Entreprise</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.natActuel">Nat Actuel</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.natDiffer">Nat Differ</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.natMineur">Nat Mineur</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.natCitoyen">Nat Citoyen</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub1">Moysub 1</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub2">Moysub 2</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub3">Moysub 3</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub4">Moysub 4</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub5">Moysub 5</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub8">Moysub 8</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs1">Moysubs 1</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs5">Moysubs 5</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs6">Moysubs 6</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs7">Moysubs 7</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs8">Moysubs 8</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.autreFrais">Autre Frais</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatCivil">Etat Civil</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.idLienF">Id Lien F</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.objPerson">Obj Person</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.idSexeAvs">Id Sexe Avs</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.typeDocV">Type Doc V</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.typeFinance">Type Finance</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.deleted">Deleted</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.person.folder">Folder</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of people; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/person', person.id, 'view']">{{ person.id }}</a>
+          </td>
+          <td>{{ person.idMoyenSub }}</td>
+          <td>{{ person.nomPrec }}</td>
+          <td>{{ person.lieuNaissance }}</td>
+          <td>{{ person.etatCivilWeb }}</td>
+          <td>{{ person.nationPrec }}</td>
+          <td>{{ person.nationActuel }}</td>
+          <td>{{ person.nomAutor }}</td>
+          <td>{{ person.prenomAutor }}</td>
+          <td>{{ person.adresAutor }}</td>
+          <td>{{ person.natiAutor }}</td>
+          <td>{{ person.numCin }}</td>
+          <td>{{ person.numDoc }}</td>
+          <td>{{ person.dateDelivDoc | formatMediumDate }}</td>
+          <td>{{ person.dateExpDoc | formatMediumDate }}</td>
+          <td>{{ person.delivParDoc }}</td>
+          <td>{{ person.adresseDomicile }}</td>
+          <td>{{ person.adresseEmail }}</td>
+          <td>{{ person.isResident }}</td>
+          <td>{{ person.titreSejour }}</td>
+          <td>{{ person.dateExpSejour | formatMediumDate }}</td>
+          <td>{{ person.numTel }}</td>
+          <td>{{ person.adressEmp }}</td>
+          <td>{{ person.telEmp }}</td>
+          <td>{{ person.nomEtab }}</td>
+          <td>{{ person.adressEtablis }}</td>
+          <td>{{ person.dureeSejour }}</td>
+          <td>{{ person.etatMemDes }}</td>
+          <td>{{ person.etatMemPremier }}</td>
+          <td>{{ person.nombreEntre }}</td>
+          <td>{{ person.oldVisaExiste }}</td>
+          <td>{{ person.dateDelivDebut | formatMediumDate }}</td>
+          <td>{{ person.dateDelivFin | formatMediumDate }}</td>
+          <td>{{ person.isEmprDegit }}</td>
+          <td>{{ person.dateEmpreint | formatMediumDate }}</td>
+          <td>{{ person.dateDelivAutor | formatMediumDate }}</td>
+          <td>{{ person.dateValideAtorDebut | formatMediumDate }}</td>
+          <td>{{ person.dateValideAutorFin | formatMediumDate }}</td>
+          <td>{{ person.dateArrivPrevu | formatMediumDate }}</td>
+          <td>{{ person.dateDepartPrevu | formatMediumDate }}</td>
+          <td>{{ person.descInvite }}</td>
+          <td>{{ person.adresseInvit }}</td>
+          <td>{{ person.telInvite }}</td>
+          <td>{{ person.emailInvite }}</td>
+          <td>{{ person.nomEntreprise }}</td>
+          <td>{{ person.adresseEntreprise }}</td>
+          <td>{{ person.contactEntreprise }}</td>
+          <td>{{ person.descContactEntreprise }}</td>
+          <td>{{ person.financeFraisVoyage }}</td>
+          <td>{{ person.nomCit }}</td>
+          <td>{{ person.prenomCit }}</td>
+          <td>{{ person.dateNaissCit | formatMediumDate }}</td>
+          <td>{{ person.nationCit }}</td>
+          <td>{{ person.numDocCit }}</td>
+          <td>{{ person.lieuForm }}</td>
+          <td>{{ person.dateForm | formatMediumDate }}</td>
+          <td>{{ person.descPhotoForm }}</td>
+          <td>{{ person.descForm1 }}</td>
+          <td>{{ person.descForm2 }}</td>
+          <td>{{ person.emailComp }}</td>
+          <td>{{ person.nomForm }}</td>
+          <td>{{ person.prenomForm }}</td>
+          <td>{{ person.idPaysForm }}</td>
+          <td>{{ person.descForm3 }}</td>
+          <td>{{ person.descForm4 }}</td>
+          <td>{{ person.autreetatcivil }}</td>
+          <td>{{ person.autredoc }}</td>
+          <td>{{ person.autreobj }}</td>
+          <td>{{ person.autrefris }}</td>
+          <td>{{ person.descpromot }}</td>
+          <td>{{ person.descinvit }}</td>
+          <td>{{ person.isVisa }}</td>
+          <td>{{ person.dateaut | formatMediumDate }}</td>
+          <td>{{ person.datecreatefo | formatMediumDate }}</td>
+          <td>{{ person.telForm }}</td>
+          <td>{{ person.professionForm }}</td>
+          <td>{{ person.referenceForm }}</td>
+          <td>{{ person.otherNation }}</td>
+          <td>{{ person.telAutori }}</td>
+          <td>{{ person.emailAutori }}</td>
+          <td>{{ person.numSejour }}</td>
+          <td>{{ person.nomEmp }}</td>
+          <td>{{ person.numEmp }}</td>
+          <td>{{ person.villeDestination }}</td>
+          <td>{{ person.infoObjeVoyage }}</td>
+          <td>{{ person.autoDelivrePar }}</td>
+          <td>{{ person.otherMoyen }}</td>
+          <td>{{ person.otherLien }}</td>
+          <td>{{ person.faxInvite }}</td>
+          <td>{{ person.faxEntreprise }}</td>
+          <td>{{ person.natActuel }}</td>
+          <td>{{ person.natDiffer }}</td>
+          <td>{{ person.natMineur }}</td>
+          <td>{{ person.natCitoyen }}</td>
+          <td>{{ person.moysub1 }}</td>
+          <td>{{ person.moysub2 }}</td>
+          <td>{{ person.moysub3 }}</td>
+          <td>{{ person.moysub4 }}</td>
+          <td>{{ person.moysub5 }}</td>
+          <td>{{ person.moysub8 }}</td>
+          <td>{{ person.moysubs1 }}</td>
+          <td>{{ person.moysubs5 }}</td>
+          <td>{{ person.moysubs6 }}</td>
+          <td>{{ person.moysubs7 }}</td>
+          <td>{{ person.moysubs8 }}</td>
+          <td>{{ person.autreFrais }}</td>
+          <td>{{ person.etatCivil }}</td>
+          <td>{{ person.idLienF }}</td>
+          <td>{{ person.objPerson }}</td>
+          <td>{{ person.idSexeAvs }}</td>
+          <td>{{ person.typeDocV }}</td>
+          <td>{{ person.typeFinance }}</td>
+          <td>{{ person.deleted }}</td>
+          <td>
+            <div *ngIf="person.folder">
+              <a [routerLink]="['/folder', person.folder?.id, 'view']">{{ person.folder?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/person', person.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/person', person.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(person)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

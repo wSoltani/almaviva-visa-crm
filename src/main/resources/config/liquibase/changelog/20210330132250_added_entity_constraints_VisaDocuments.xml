@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity VisaDocuments.
+    -->
+    <changeSet id="20210330132250-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="visa_documents_id"
+                                 baseTableName="rel_visa_documents__visa"
+                                 constraintName="fk_rel_visa_documents__visa__visa_documents_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visa_documents"/>
+
+        <addForeignKeyConstraint baseColumnNames="visa_id"
+                                 baseTableName="rel_visa_documents__visa"
+                                 constraintName="fk_rel_visa_documents__visa__visa_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visa"/>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -48,6 +48,26 @@ public class CacheConfiguration {
             createCache(cm, com.almaviva.vs.domain.User.class.getName());
             createCache(cm, com.almaviva.vs.domain.Authority.class.getName());
             createCache(cm, com.almaviva.vs.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.almaviva.vs.domain.VisaDocuments.class.getName());
+            createCache(cm, com.almaviva.vs.domain.VisaDocuments.class.getName() + ".visas");
+            createCache(cm, com.almaviva.vs.domain.Visa.class.getName());
+            createCache(cm, com.almaviva.vs.domain.Visa.class.getName() + ".folders");
+            createCache(cm, com.almaviva.vs.domain.Visa.class.getName() + ".documents");
+            createCache(cm, com.almaviva.vs.domain.Client.class.getName());
+            createCache(cm, com.almaviva.vs.domain.PhoneActivation.class.getName());
+            createCache(cm, com.almaviva.vs.domain.EmailActivation.class.getName());
+            createCache(cm, com.almaviva.vs.domain.Appointment.class.getName());
+            createCache(cm, com.almaviva.vs.domain.Site.class.getName());
+            createCache(cm, com.almaviva.vs.domain.Site.class.getName() + ".siteConfigurations");
+            createCache(cm, com.almaviva.vs.domain.Site.class.getName() + ".siteServices");
+            createCache(cm, com.almaviva.vs.domain.SiteConfiguration.class.getName());
+            createCache(cm, com.almaviva.vs.domain.DayOff.class.getName());
+            createCache(cm, com.almaviva.vs.domain.Folder.class.getName());
+            createCache(cm, com.almaviva.vs.domain.Folder.class.getName() + ".services");
+            createCache(cm, com.almaviva.vs.domain.Mandate.class.getName());
+            createCache(cm, com.almaviva.vs.domain.Person.class.getName());
+            createCache(cm, com.almaviva.vs.domain.AVService.class.getName());
+            createCache(cm, com.almaviva.vs.domain.AVService.class.getName() + ".folders");
             // jhipster-needle-ehcache-add-entry
         };
     }

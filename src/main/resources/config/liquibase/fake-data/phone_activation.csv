@@ -1,0 +1,11 @@
+id;is_activated;activation_key;expiration_date;deleted
+1;true;copying;2021-03-29;false
+2;false;b SDD;2021-03-29;false
+3;false;invoice Hong Islands;2021-03-30;true
+4;true;e-markets;2021-03-29;true
+5;true;deposit;2021-03-30;true
+6;false;Cotton;2021-03-29;true
+7;false;Taka;2021-03-29;false
+8;true;Sports b innovate;2021-03-29;false
+9;false;deposit Ball a;2021-03-30;true
+10;false;hard Personal;2021-03-29;true
