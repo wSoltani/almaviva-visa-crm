@@ -42,7 +42,23 @@
     "jwtSecretKey": "OTQ4MmU1NTBkMmUxZGFkODVjZGM4NzM4ZmI3NTc5YTNmYzFjYWVjM2M1ZWFlYTg4NjAxNmE2MWVhNjY5Nzk1MjEwZjg0OWVmYWNlNmMyMTdhZGMwYmZhYjViNDZlMmQwM2NlNTYzOGNiNTRjMzIyZWM3YTkyZmE2MGY1OGJiNmI=",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": [
+      "VisaDocuments",
+      "Visa",
+      "Client",
+      "PhoneActivation",
+      "EmailActivation",
+      "Appointment",
+      "Site",
+      "SiteConfiguration",
+      "DayOff",
+      "Folder",
+      "Mandate",
+      "Person",
+      "AVService"
+    ],
+    "lastLiquibaseTimestamp": 1617110582000
   },
   "git-provider": "GitHub",
   "git-company": "wSoltani",

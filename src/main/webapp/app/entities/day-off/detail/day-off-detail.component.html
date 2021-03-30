@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="dayOff">
+      <h2 data-cy="dayOffDetailsHeading"><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.detail.title">Day Off</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.id">Id</span></dt>
+        <dd>
+          <span>{{ dayOff.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.title">Title</span></dt>
+        <dd>
+          <span>{{ dayOff.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.description">Description</span></dt>
+        <dd>
+          <span>{{ dayOff.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.date">Date</span></dt>
+        <dd>
+          <span>{{ dayOff.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.isHoliday">Is Holiday</span></dt>
+        <dd>
+          <span>{{ dayOff.isHoliday }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ dayOff.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.dayOff.siteConfiguration">Site Configuration</span></dt>
+        <dd>
+          <div *ngIf="dayOff.siteConfiguration">
+            <a [routerLink]="['/site-configuration', dayOff.siteConfiguration?.id, 'view']">{{ dayOff.siteConfiguration?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/day-off', dayOff.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

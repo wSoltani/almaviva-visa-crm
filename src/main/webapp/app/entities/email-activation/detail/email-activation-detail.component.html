@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="emailActivation">
+      <h2 data-cy="emailActivationDetailsHeading">
+        <span jhiTranslate="almavivaVisaServiceCrmApp.emailActivation.detail.title">Email Activation</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.emailActivation.id">Id</span></dt>
+        <dd>
+          <span>{{ emailActivation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.emailActivation.isActivated">Is Activated</span></dt>
+        <dd>
+          <span>{{ emailActivation.isActivated }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.emailActivation.activationKey">Activation Key</span></dt>
+        <dd>
+          <span>{{ emailActivation.activationKey }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.emailActivation.expirationDate">Expiration Date</span></dt>
+        <dd>
+          <span>{{ emailActivation.expirationDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.emailActivation.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ emailActivation.deleted }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/email-activation', emailActivation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

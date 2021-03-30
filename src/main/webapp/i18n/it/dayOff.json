@@ -1,0 +1,30 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "dayOff": {
+      "home": {
+        "title": "DayOffs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Day Off",
+        "createOrEditLabel": "Genera o modifica un Day Off",
+        "search": "Cerca Day Off",
+        "notFound": "No Day Offs found"
+      },
+      "created": "&Egrave; stato generato un nuovo Day Off con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Day Off identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Day Off con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Day Off {{ id }}?"
+      },
+      "detail": {
+        "title": "Day Off"
+      },
+      "id": "Id",
+      "title": "Title",
+      "description": "Description",
+      "date": "Date",
+      "isHoliday": "Is Holiday",
+      "deleted": "Deleted",
+      "siteConfiguration": "Site Configuration"
+    }
+  }
+}

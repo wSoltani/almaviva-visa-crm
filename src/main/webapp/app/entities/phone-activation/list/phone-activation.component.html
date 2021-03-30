@@ -1,0 +1,111 @@
+<div>
+  <h2 id="page-heading" data-cy="PhoneActivationHeading">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.home.title">Phone Activations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-phone-activation"
+        [routerLink]="['/phone-activation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.home.createLabel">
+          Create a new Phone Activation
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="searchForm" class="form-inline">
+        <div class="input-group w-100 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="currentSearch"
+            id="currentSearch"
+            name="currentSearch"
+            placeholder="{{ 'almavivaVisaServiceCrmApp.phoneActivation.home.search' | translate }}"
+          />
+
+          <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+            <fa-icon icon="search"></fa-icon>
+          </button>
+
+          <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="phoneActivations?.length === 0">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.home.notFound">No phoneActivations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="phoneActivations && phoneActivations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.isActivated">Is Activated</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.activationKey">Activation Key</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.expirationDate">Expiration Date</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.deleted">Deleted</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let phoneActivation of phoneActivations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/phone-activation', phoneActivation.id, 'view']">{{ phoneActivation.id }}</a>
+          </td>
+          <td>{{ phoneActivation.isActivated }}</td>
+          <td>{{ phoneActivation.activationKey }}</td>
+          <td>{{ phoneActivation.expirationDate | formatMediumDate }}</td>
+          <td>{{ phoneActivation.deleted }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/phone-activation', phoneActivation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/phone-activation', phoneActivation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(phoneActivation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

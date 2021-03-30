@@ -1,0 +1,11 @@
+id;is_activated;activation_key;expiration_date;deleted
+1;false;deposit;2021-03-29;true
+2;false;deposit reintermediate;2021-03-30;true
+3;false;functionalities HTTP;2021-03-29;false
+4;true;Auvergne;2021-03-29;true
+5;false;Intelligent asynchronous Aquitaine;2021-03-30;true
+6;true;c b;2021-03-29;true
+7;false;superstructure Avon transmit;2021-03-29;true
+8;true;Streamlined;2021-03-29;false
+9;true;Bedfordshire;2021-03-29;false
+10;true;PNG Bourgogne;2021-03-29;true

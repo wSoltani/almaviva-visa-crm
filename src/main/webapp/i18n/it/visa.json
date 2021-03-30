@@ -1,0 +1,30 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "visa": {
+      "home": {
+        "title": "Visas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Genera un nuovo Visa",
+        "createOrEditLabel": "Genera o modifica un Visa",
+        "search": "Cerca Visa",
+        "notFound": "No Visas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Visa con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Visa identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Visa con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Visa {{ id }}?"
+      },
+      "detail": {
+        "title": "Visa"
+      },
+      "id": "Id",
+      "title": "Title",
+      "price": "Price",
+      "description": "Description",
+      "deleted": "Deleted",
+      "folder": "Folder",
+      "document": "Document"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "aVService": {
+      "home": {
+        "title": "AVServices",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau AV Service",
+        "createOrEditLabel": "Créer ou éditer un AV Service",
+        "search": "Recherche pour AV Service",
+        "notFound": "Aucun AV Service trouvé"
+      },
+      "created": "Un nouveau AV Service a été créé avec l'identifiant {{ param }}",
+      "updated": "Le AV Service avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le AV Service avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le AV Service {{ id }} ?"
+      },
+      "detail": {
+        "title": "AV Service"
+      },
+      "id": "Id",
+      "title": "Title",
+      "description": "Description",
+      "price": "Price",
+      "quantity": "Quantity",
+      "isPrincipal": "Is Principal",
+      "deleted": "Deleted",
+      "site": "Site",
+      "folder": "Folder"
+    }
+  }
+}

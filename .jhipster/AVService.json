@@ -1,0 +1,58 @@
+{
+  "name": "AVService",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isPrincipal",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "site",
+      "otherEntityRelationshipName": "siteService",
+      "relationshipName": "site"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "folder",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "folder",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "av_service",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210330132302"
+}

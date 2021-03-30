@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Person.
+    -->
+    <changeSet id="20210330132301-1" author="jhipster">
+        <createTable tableName="person">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="id_moyen_sub" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_prec" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="lieu_naissance" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="etat_civil_web" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="nation_prec" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="nation_actuel" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_autor" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="prenom_autor" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="adres_autor" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nati_autor" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="num_cin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="num_doc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_deliv_doc" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_exp_doc" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="deliv_par_doc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="adresse_domicile" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="adresse_email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_resident" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="titre_sejour" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_exp_sejour" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="num_tel" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="adress_emp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tel_emp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_etab" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="adress_etablis" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="duree_sejour" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="etat_mem_des" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="etat_mem_premier" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nombre_entre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="old_visa_existe" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_deliv_debut" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_deliv_fin" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_empr_degit" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_empreint" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_deliv_autor" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_valide_ator_debut" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_valide_autor_fin" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_arriv_prevu" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_depart_prevu" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="desc_invite" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="adresse_invit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tel_invite" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="email_invite" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_entreprise" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="adresse_entreprise" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="contact_entreprise" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="desc_contact_entreprise" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="finance_frais_voyage" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_cit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="prenom_cit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_naiss_cit" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="nation_cit" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="num_doc_cit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="lieu_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_form" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="desc_photo_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="desc_form_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="desc_form_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="email_comp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="prenom_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_pays_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="desc_form_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="desc_form_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="autreetatcivil" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="autredoc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="autreobj" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="autrefris" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="descpromot" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="descinvit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_visa" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="dateaut" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="datecreatefo" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="tel_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="profession_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="reference_form" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="other_nation" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tel_autori" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="email_autori" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="num_sejour" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_emp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="num_emp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ville_destination" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="info_obje_voyage" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="auto_delivre_par" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="other_moyen" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="other_lien" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="fax_invite" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="fax_entreprise" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nat_actuel" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nat_differ" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nat_mineur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nat_citoyen" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysub_1" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysub_2" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysub_3" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysub_4" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysub_5" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysub_8" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysubs_1" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysubs_5" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysubs_6" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysubs_7" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="moysubs_8" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="autre_frais" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="etat_civil" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_lien_f" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="obj_person" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_sexe_avs" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_doc_v" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_finance" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="deleted" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="folder_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_person__folder_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210330132301-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/person.csv"
+                  separator=";"
+                  tableName="person">
+            <column name="id" type="numeric"/>
+            <column name="id_moyen_sub" type="numeric"/>
+            <column name="nom_prec" type="string"/>
+            <column name="lieu_naissance" type="string"/>
+            <column name="etat_civil_web" type="numeric"/>
+            <column name="nation_prec" type="numeric"/>
+            <column name="nation_actuel" type="numeric"/>
+            <column name="nom_autor" type="string"/>
+            <column name="prenom_autor" type="string"/>
+            <column name="adres_autor" type="string"/>
+            <column name="nati_autor" type="numeric"/>
+            <column name="num_cin" type="string"/>
+            <column name="num_doc" type="string"/>
+            <column name="date_deliv_doc" type="date"/>
+            <column name="date_exp_doc" type="date"/>
+            <column name="deliv_par_doc" type="string"/>
+            <column name="adresse_domicile" type="string"/>
+            <column name="adresse_email" type="string"/>
+            <column name="is_resident" type="boolean"/>
+            <column name="titre_sejour" type="string"/>
+            <column name="date_exp_sejour" type="date"/>
+            <column name="num_tel" type="string"/>
+            <column name="adress_emp" type="string"/>
+            <column name="tel_emp" type="string"/>
+            <column name="nom_etab" type="string"/>
+            <column name="adress_etablis" type="string"/>
+            <column name="duree_sejour" type="numeric"/>
+            <column name="etat_mem_des" type="string"/>
+            <column name="etat_mem_premier" type="string"/>
+            <column name="nombre_entre" type="string"/>
+            <column name="old_visa_existe" type="boolean"/>
+            <column name="date_deliv_debut" type="date"/>
+            <column name="date_deliv_fin" type="date"/>
+            <column name="is_empr_degit" type="boolean"/>
+            <column name="date_empreint" type="date"/>
+            <column name="date_deliv_autor" type="date"/>
+            <column name="date_valide_ator_debut" type="date"/>
+            <column name="date_valide_autor_fin" type="date"/>
+            <column name="date_arriv_prevu" type="date"/>
+            <column name="date_depart_prevu" type="date"/>
+            <column name="desc_invite" type="string"/>
+            <column name="adresse_invit" type="string"/>
+            <column name="tel_invite" type="string"/>
+            <column name="email_invite" type="string"/>
+            <column name="nom_entreprise" type="string"/>
+            <column name="adresse_entreprise" type="string"/>
+            <column name="contact_entreprise" type="string"/>
+            <column name="desc_contact_entreprise" type="string"/>
+            <column name="finance_frais_voyage" type="string"/>
+            <column name="nom_cit" type="string"/>
+            <column name="prenom_cit" type="string"/>
+            <column name="date_naiss_cit" type="date"/>
+            <column name="nation_cit" type="numeric"/>
+            <column name="num_doc_cit" type="string"/>
+            <column name="lieu_form" type="string"/>
+            <column name="date_form" type="date"/>
+            <column name="desc_photo_form" type="string"/>
+            <column name="desc_form_1" type="string"/>
+            <column name="desc_form_2" type="string"/>
+            <column name="email_comp" type="string"/>
+            <column name="nom_form" type="string"/>
+            <column name="prenom_form" type="string"/>
+            <column name="id_pays_form" type="string"/>
+            <column name="desc_form_3" type="string"/>
+            <column name="desc_form_4" type="string"/>
+            <column name="autreetatcivil" type="string"/>
+            <column name="autredoc" type="string"/>
+            <column name="autreobj" type="string"/>
+            <column name="autrefris" type="string"/>
+            <column name="descpromot" type="string"/>
+            <column name="descinvit" type="string"/>
+            <column name="is_visa" type="boolean"/>
+            <column name="dateaut" type="date"/>
+            <column name="datecreatefo" type="date"/>
+            <column name="tel_form" type="string"/>
+            <column name="profession_form" type="string"/>
+            <column name="reference_form" type="string"/>
+            <column name="other_nation" type="string"/>
+            <column name="tel_autori" type="string"/>
+            <column name="email_autori" type="string"/>
+            <column name="num_sejour" type="string"/>
+            <column name="nom_emp" type="string"/>
+            <column name="num_emp" type="string"/>
+            <column name="ville_destination" type="string"/>
+            <column name="info_obje_voyage" type="string"/>
+            <column name="auto_delivre_par" type="string"/>
+            <column name="other_moyen" type="string"/>
+            <column name="other_lien" type="string"/>
+            <column name="fax_invite" type="string"/>
+            <column name="fax_entreprise" type="string"/>
+            <column name="nat_actuel" type="string"/>
+            <column name="nat_differ" type="string"/>
+            <column name="nat_mineur" type="string"/>
+            <column name="nat_citoyen" type="string"/>
+            <column name="moysub_1" type="boolean"/>
+            <column name="moysub_2" type="boolean"/>
+            <column name="moysub_3" type="boolean"/>
+            <column name="moysub_4" type="boolean"/>
+            <column name="moysub_5" type="boolean"/>
+            <column name="moysub_8" type="boolean"/>
+            <column name="moysubs_1" type="boolean"/>
+            <column name="moysubs_5" type="boolean"/>
+            <column name="moysubs_6" type="boolean"/>
+            <column name="moysubs_7" type="boolean"/>
+            <column name="moysubs_8" type="boolean"/>
+            <column name="autre_frais" type="string"/>
+            <column name="etat_civil" type="numeric"/>
+            <column name="id_lien_f" type="numeric"/>
+            <column name="obj_person" type="numeric"/>
+            <column name="id_sexe_avs" type="numeric"/>
+            <column name="type_doc_v" type="numeric"/>
+            <column name="type_finance" type="numeric"/>
+            <column name="deleted" type="boolean"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

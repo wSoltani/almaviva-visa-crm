@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="phoneActivation">
+      <h2 data-cy="phoneActivationDetailsHeading">
+        <span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.detail.title">Phone Activation</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.id">Id</span></dt>
+        <dd>
+          <span>{{ phoneActivation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.isActivated">Is Activated</span></dt>
+        <dd>
+          <span>{{ phoneActivation.isActivated }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.activationKey">Activation Key</span></dt>
+        <dd>
+          <span>{{ phoneActivation.activationKey }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.expirationDate">Expiration Date</span></dt>
+        <dd>
+          <span>{{ phoneActivation.expirationDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.phoneActivation.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ phoneActivation.deleted }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/phone-activation', phoneActivation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

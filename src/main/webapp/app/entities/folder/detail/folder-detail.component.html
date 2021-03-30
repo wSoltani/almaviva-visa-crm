@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="folder">
+      <h2 data-cy="folderDetailsHeading"><span jhiTranslate="almavivaVisaServiceCrmApp.folder.detail.title">Folder</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.id">Id</span></dt>
+        <dd>
+          <span>{{ folder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.folderId">Folder Id</span></dt>
+        <dd>
+          <span>{{ folder.folderId }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.status">Status</span></dt>
+        <dd>
+          <span>{{ folder.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.paymentMethod">Payment Method</span></dt>
+        <dd>
+          <span>{{ folder.paymentMethod }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.waitingRoom">Waiting Room</span></dt>
+        <dd>
+          <span>{{ folder.waitingRoom }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.serviceType">Service Type</span></dt>
+        <dd>
+          <span>{{ folder.serviceType }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.isAvsFree">Is Avs Free</span></dt>
+        <dd>
+          <span>{{ folder.isAvsFree }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ folder.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.appointment">Appointment</span></dt>
+        <dd>
+          <div *ngIf="folder.appointment">
+            <a [routerLink]="['/appointment', folder.appointment?.id, 'view']">{{ folder.appointment?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.site">Site</span></dt>
+        <dd>
+          <div *ngIf="folder.site">
+            <a [routerLink]="['/site', folder.site?.id, 'view']">{{ folder.site?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.service">Service</span></dt>
+        <dd>
+          <span *ngFor="let service of folder.services; let last = last">
+            <a [routerLink]="['/av-service', service?.id, 'view']">{{ service.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.folder.visa">Visa</span></dt>
+        <dd>
+          <div *ngIf="folder.visa">
+            <a [routerLink]="['/visa', folder.visa?.id, 'view']">{{ folder.visa?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/folder', folder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

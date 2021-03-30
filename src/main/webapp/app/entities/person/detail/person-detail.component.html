@@ -1,0 +1,482 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="person">
+      <h2 data-cy="personDetailsHeading"><span jhiTranslate="almavivaVisaServiceCrmApp.person.detail.title">Person</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.id">Id</span></dt>
+        <dd>
+          <span>{{ person.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.idMoyenSub">Id Moyen Sub</span></dt>
+        <dd>
+          <span>{{ person.idMoyenSub }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomPrec">Nom Prec</span></dt>
+        <dd>
+          <span>{{ person.nomPrec }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.lieuNaissance">Lieu Naissance</span></dt>
+        <dd>
+          <span>{{ person.lieuNaissance }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatCivilWeb">Etat Civil Web</span></dt>
+        <dd>
+          <span>{{ person.etatCivilWeb }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nationPrec">Nation Prec</span></dt>
+        <dd>
+          <span>{{ person.nationPrec }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nationActuel">Nation Actuel</span></dt>
+        <dd>
+          <span>{{ person.nationActuel }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomAutor">Nom Autor</span></dt>
+        <dd>
+          <span>{{ person.nomAutor }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.prenomAutor">Prenom Autor</span></dt>
+        <dd>
+          <span>{{ person.prenomAutor }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresAutor">Adres Autor</span></dt>
+        <dd>
+          <span>{{ person.adresAutor }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.natiAutor">Nati Autor</span></dt>
+        <dd>
+          <span>{{ person.natiAutor }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.numCin">Num Cin</span></dt>
+        <dd>
+          <span>{{ person.numCin }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.numDoc">Num Doc</span></dt>
+        <dd>
+          <span>{{ person.numDoc }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivDoc">Date Deliv Doc</span></dt>
+        <dd>
+          <span>{{ person.dateDelivDoc | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateExpDoc">Date Exp Doc</span></dt>
+        <dd>
+          <span>{{ person.dateExpDoc | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.delivParDoc">Deliv Par Doc</span></dt>
+        <dd>
+          <span>{{ person.delivParDoc }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseDomicile">Adresse Domicile</span></dt>
+        <dd>
+          <span>{{ person.adresseDomicile }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseEmail">Adresse Email</span></dt>
+        <dd>
+          <span>{{ person.adresseEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.isResident">Is Resident</span></dt>
+        <dd>
+          <span>{{ person.isResident }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.titreSejour">Titre Sejour</span></dt>
+        <dd>
+          <span>{{ person.titreSejour }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateExpSejour">Date Exp Sejour</span></dt>
+        <dd>
+          <span>{{ person.dateExpSejour | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.numTel">Num Tel</span></dt>
+        <dd>
+          <span>{{ person.numTel }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.adressEmp">Adress Emp</span></dt>
+        <dd>
+          <span>{{ person.adressEmp }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.telEmp">Tel Emp</span></dt>
+        <dd>
+          <span>{{ person.telEmp }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomEtab">Nom Etab</span></dt>
+        <dd>
+          <span>{{ person.nomEtab }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.adressEtablis">Adress Etablis</span></dt>
+        <dd>
+          <span>{{ person.adressEtablis }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dureeSejour">Duree Sejour</span></dt>
+        <dd>
+          <span>{{ person.dureeSejour }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatMemDes">Etat Mem Des</span></dt>
+        <dd>
+          <span>{{ person.etatMemDes }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatMemPremier">Etat Mem Premier</span></dt>
+        <dd>
+          <span>{{ person.etatMemPremier }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nombreEntre">Nombre Entre</span></dt>
+        <dd>
+          <span>{{ person.nombreEntre }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.oldVisaExiste">Old Visa Existe</span></dt>
+        <dd>
+          <span>{{ person.oldVisaExiste }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivDebut">Date Deliv Debut</span></dt>
+        <dd>
+          <span>{{ person.dateDelivDebut | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivFin">Date Deliv Fin</span></dt>
+        <dd>
+          <span>{{ person.dateDelivFin | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.isEmprDegit">Is Empr Degit</span></dt>
+        <dd>
+          <span>{{ person.isEmprDegit }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateEmpreint">Date Empreint</span></dt>
+        <dd>
+          <span>{{ person.dateEmpreint | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivAutor">Date Deliv Autor</span></dt>
+        <dd>
+          <span>{{ person.dateDelivAutor | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateValideAtorDebut">Date Valide Ator Debut</span></dt>
+        <dd>
+          <span>{{ person.dateValideAtorDebut | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateValideAutorFin">Date Valide Autor Fin</span></dt>
+        <dd>
+          <span>{{ person.dateValideAutorFin | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateArrivPrevu">Date Arriv Prevu</span></dt>
+        <dd>
+          <span>{{ person.dateArrivPrevu | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateDepartPrevu">Date Depart Prevu</span></dt>
+        <dd>
+          <span>{{ person.dateDepartPrevu | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descInvite">Desc Invite</span></dt>
+        <dd>
+          <span>{{ person.descInvite }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseInvit">Adresse Invit</span></dt>
+        <dd>
+          <span>{{ person.adresseInvit }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.telInvite">Tel Invite</span></dt>
+        <dd>
+          <span>{{ person.telInvite }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.emailInvite">Email Invite</span></dt>
+        <dd>
+          <span>{{ person.emailInvite }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomEntreprise">Nom Entreprise</span></dt>
+        <dd>
+          <span>{{ person.nomEntreprise }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.adresseEntreprise">Adresse Entreprise</span></dt>
+        <dd>
+          <span>{{ person.adresseEntreprise }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.contactEntreprise">Contact Entreprise</span></dt>
+        <dd>
+          <span>{{ person.contactEntreprise }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descContactEntreprise">Desc Contact Entreprise</span></dt>
+        <dd>
+          <span>{{ person.descContactEntreprise }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.financeFraisVoyage">Finance Frais Voyage</span></dt>
+        <dd>
+          <span>{{ person.financeFraisVoyage }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomCit">Nom Cit</span></dt>
+        <dd>
+          <span>{{ person.nomCit }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.prenomCit">Prenom Cit</span></dt>
+        <dd>
+          <span>{{ person.prenomCit }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateNaissCit">Date Naiss Cit</span></dt>
+        <dd>
+          <span>{{ person.dateNaissCit | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nationCit">Nation Cit</span></dt>
+        <dd>
+          <span>{{ person.nationCit }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.numDocCit">Num Doc Cit</span></dt>
+        <dd>
+          <span>{{ person.numDocCit }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.lieuForm">Lieu Form</span></dt>
+        <dd>
+          <span>{{ person.lieuForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateForm">Date Form</span></dt>
+        <dd>
+          <span>{{ person.dateForm | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descPhotoForm">Desc Photo Form</span></dt>
+        <dd>
+          <span>{{ person.descPhotoForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm1">Desc Form 1</span></dt>
+        <dd>
+          <span>{{ person.descForm1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm2">Desc Form 2</span></dt>
+        <dd>
+          <span>{{ person.descForm2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.emailComp">Email Comp</span></dt>
+        <dd>
+          <span>{{ person.emailComp }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomForm">Nom Form</span></dt>
+        <dd>
+          <span>{{ person.nomForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.prenomForm">Prenom Form</span></dt>
+        <dd>
+          <span>{{ person.prenomForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.idPaysForm">Id Pays Form</span></dt>
+        <dd>
+          <span>{{ person.idPaysForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm3">Desc Form 3</span></dt>
+        <dd>
+          <span>{{ person.descForm3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descForm4">Desc Form 4</span></dt>
+        <dd>
+          <span>{{ person.descForm4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.autreetatcivil">Autreetatcivil</span></dt>
+        <dd>
+          <span>{{ person.autreetatcivil }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.autredoc">Autredoc</span></dt>
+        <dd>
+          <span>{{ person.autredoc }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.autreobj">Autreobj</span></dt>
+        <dd>
+          <span>{{ person.autreobj }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.autrefris">Autrefris</span></dt>
+        <dd>
+          <span>{{ person.autrefris }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descpromot">Descpromot</span></dt>
+        <dd>
+          <span>{{ person.descpromot }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.descinvit">Descinvit</span></dt>
+        <dd>
+          <span>{{ person.descinvit }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.isVisa">Is Visa</span></dt>
+        <dd>
+          <span>{{ person.isVisa }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.dateaut">Dateaut</span></dt>
+        <dd>
+          <span>{{ person.dateaut | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.datecreatefo">Datecreatefo</span></dt>
+        <dd>
+          <span>{{ person.datecreatefo | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.telForm">Tel Form</span></dt>
+        <dd>
+          <span>{{ person.telForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.professionForm">Profession Form</span></dt>
+        <dd>
+          <span>{{ person.professionForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.referenceForm">Reference Form</span></dt>
+        <dd>
+          <span>{{ person.referenceForm }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.otherNation">Other Nation</span></dt>
+        <dd>
+          <span>{{ person.otherNation }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.telAutori">Tel Autori</span></dt>
+        <dd>
+          <span>{{ person.telAutori }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.emailAutori">Email Autori</span></dt>
+        <dd>
+          <span>{{ person.emailAutori }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.numSejour">Num Sejour</span></dt>
+        <dd>
+          <span>{{ person.numSejour }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.nomEmp">Nom Emp</span></dt>
+        <dd>
+          <span>{{ person.nomEmp }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.numEmp">Num Emp</span></dt>
+        <dd>
+          <span>{{ person.numEmp }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.villeDestination">Ville Destination</span></dt>
+        <dd>
+          <span>{{ person.villeDestination }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.infoObjeVoyage">Info Obje Voyage</span></dt>
+        <dd>
+          <span>{{ person.infoObjeVoyage }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.autoDelivrePar">Auto Delivre Par</span></dt>
+        <dd>
+          <span>{{ person.autoDelivrePar }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.otherMoyen">Other Moyen</span></dt>
+        <dd>
+          <span>{{ person.otherMoyen }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.otherLien">Other Lien</span></dt>
+        <dd>
+          <span>{{ person.otherLien }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.faxInvite">Fax Invite</span></dt>
+        <dd>
+          <span>{{ person.faxInvite }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.faxEntreprise">Fax Entreprise</span></dt>
+        <dd>
+          <span>{{ person.faxEntreprise }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.natActuel">Nat Actuel</span></dt>
+        <dd>
+          <span>{{ person.natActuel }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.natDiffer">Nat Differ</span></dt>
+        <dd>
+          <span>{{ person.natDiffer }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.natMineur">Nat Mineur</span></dt>
+        <dd>
+          <span>{{ person.natMineur }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.natCitoyen">Nat Citoyen</span></dt>
+        <dd>
+          <span>{{ person.natCitoyen }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub1">Moysub 1</span></dt>
+        <dd>
+          <span>{{ person.moysub1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub2">Moysub 2</span></dt>
+        <dd>
+          <span>{{ person.moysub2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub3">Moysub 3</span></dt>
+        <dd>
+          <span>{{ person.moysub3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub4">Moysub 4</span></dt>
+        <dd>
+          <span>{{ person.moysub4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub5">Moysub 5</span></dt>
+        <dd>
+          <span>{{ person.moysub5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysub8">Moysub 8</span></dt>
+        <dd>
+          <span>{{ person.moysub8 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs1">Moysubs 1</span></dt>
+        <dd>
+          <span>{{ person.moysubs1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs5">Moysubs 5</span></dt>
+        <dd>
+          <span>{{ person.moysubs5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs6">Moysubs 6</span></dt>
+        <dd>
+          <span>{{ person.moysubs6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs7">Moysubs 7</span></dt>
+        <dd>
+          <span>{{ person.moysubs7 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs8">Moysubs 8</span></dt>
+        <dd>
+          <span>{{ person.moysubs8 }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.autreFrais">Autre Frais</span></dt>
+        <dd>
+          <span>{{ person.autreFrais }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.etatCivil">Etat Civil</span></dt>
+        <dd>
+          <span>{{ person.etatCivil }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.idLienF">Id Lien F</span></dt>
+        <dd>
+          <span>{{ person.idLienF }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.objPerson">Obj Person</span></dt>
+        <dd>
+          <span>{{ person.objPerson }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.idSexeAvs">Id Sexe Avs</span></dt>
+        <dd>
+          <span>{{ person.idSexeAvs }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.typeDocV">Type Doc V</span></dt>
+        <dd>
+          <span>{{ person.typeDocV }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.typeFinance">Type Finance</span></dt>
+        <dd>
+          <span>{{ person.typeFinance }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ person.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.person.folder">Folder</span></dt>
+        <dd>
+          <div *ngIf="person.folder">
+            <a [routerLink]="['/folder', person.folder?.id, 'view']">{{ person.folder?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/person', person.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

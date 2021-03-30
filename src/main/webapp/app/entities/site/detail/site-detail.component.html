@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="site">
+      <h2 data-cy="siteDetailsHeading"><span jhiTranslate="almavivaVisaServiceCrmApp.site.detail.title">Site</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.site.id">Id</span></dt>
+        <dd>
+          <span>{{ site.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.site.name">Name</span></dt>
+        <dd>
+          <span>{{ site.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.site.imgUrl">Img Url</span></dt>
+        <dd>
+          <span>{{ site.imgUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.site.address">Address</span></dt>
+        <dd>
+          <span>{{ site.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.site.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ site.deleted }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/site', site.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

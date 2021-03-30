@@ -1,0 +1,476 @@
+{
+  "name": "Person",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idMoyenSub",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nomPrec",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lieuNaissance",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etatCivilWeb",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nationPrec",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nationActuel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nomAutor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomAutor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresAutor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "natiAutor",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numCin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numDoc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDelivDoc",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateExpDoc",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "delivParDoc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseDomicile",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isResident",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "titreSejour",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateExpSejour",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "numTel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adressEmp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telEmp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomEtab",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adressEtablis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dureeSejour",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "etatMemDes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etatMemPremier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombreEntre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oldVisaExiste",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dateDelivDebut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateDelivFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isEmprDegit",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dateEmpreint",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateDelivAutor",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateValideAtorDebut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateValideAutorFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateArrivPrevu",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateDepartPrevu",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "descInvite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseInvit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telInvite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailInvite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomEntreprise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseEntreprise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactEntreprise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descContactEntreprise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financeFraisVoyage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomCit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomCit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateNaissCit",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "nationCit",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numDocCit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lieuForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateForm",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "descPhotoForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descForm1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descForm2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailComp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idPaysForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descForm3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descForm4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreetatcivil",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autredoc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autreobj",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autrefris",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descpromot",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descinvit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isVisa",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dateaut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "datecreatefo",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "telForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "professionForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "referenceForm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherNation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telAutori",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailAutori",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numSejour",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomEmp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numEmp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "villeDestination",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "infoObjeVoyage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autoDelivrePar",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherMoyen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherLien",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "faxInvite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "faxEntreprise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "natActuel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "natDiffer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "natMineur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "natCitoyen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "moysub1",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysub2",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysub3",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysub4",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysub5",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysub8",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysubs1",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysubs5",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysubs6",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysubs7",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "moysubs8",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "autreFrais",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etatCivil",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idLienF",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "objPerson",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idSexeAvs",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "typeDocV",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "typeFinance",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "folder",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "folder",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "person",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210330132301"
+}

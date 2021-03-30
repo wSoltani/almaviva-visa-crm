@@ -1,0 +1,28 @@
+{
+  "almavivaVisaServiceCrmApp": {
+    "emailActivation": {
+      "home": {
+        "title": "EmailActivations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Email Activation",
+        "createOrEditLabel": "Créer ou éditer un Email Activation",
+        "search": "Recherche pour Email Activation",
+        "notFound": "Aucun Email Activation trouvé"
+      },
+      "created": "Un nouveau Email Activation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Email Activation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Email Activation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Email Activation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Email Activation"
+      },
+      "id": "Id",
+      "isActivated": "Is Activated",
+      "activationKey": "Activation Key",
+      "expirationDate": "Expiration Date",
+      "deleted": "Deleted"
+    }
+  }
+}

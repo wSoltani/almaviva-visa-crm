@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-mandate-heading"
+        data-cy="MandateCreateUpdateHeading"
+        jhiTranslate="almavivaVisaServiceCrmApp.mandate.home.createOrEditLabel"
+      >
+        Create or edit a Mandate
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.code" for="field_code">Code</label>
+          <input type="number" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.amount" for="field_amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.date" for="field_date">Date</label>
+          <div class="input-group">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="text"
+              class="form-control"
+              name="date"
+              ngbDatepicker
+              #dateDp="ngbDatepicker"
+              formControlName="date"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.isAVSPaiment" for="field_isAVSPaiment"
+            >Is AVS Paiment</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isAVSPaiment"
+            id="field_isAVSPaiment"
+            data-cy="isAVSPaiment"
+            formControlName="isAVSPaiment"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.deleted" for="field_deleted">Deleted</label>
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.mandate.folder" for="field_folder">Folder</label>
+          <select class="form-control" id="field_folder" data-cy="folder" name="folder" formControlName="folder">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="folderOption.id === editForm.get('folder')!.value?.id ? editForm.get('folder')!.value : folderOption"
+              *ngFor="let folderOption of foldersSharedCollection; trackBy: trackFolderById"
+            >
+              {{ folderOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -7,6 +7,19 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "visaDocuments": "Visa Documents",
+        "visa": "Visa",
+        "client": "Client",
+        "phoneActivation": "Phone Activation",
+        "emailActivation": "Email Activation",
+        "appointment": "Appointment",
+        "site": "Site",
+        "siteConfiguration": "Site Configuration",
+        "dayOff": "Day Off",
+        "folder": "Folder",
+        "mandate": "Mandate",
+        "person": "Person",
+        "avService": "AV Service",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

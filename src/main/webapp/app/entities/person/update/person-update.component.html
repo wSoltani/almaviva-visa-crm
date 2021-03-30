@@ -1,0 +1,1327 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-person-heading"
+        data-cy="PersonCreateUpdateHeading"
+        jhiTranslate="almavivaVisaServiceCrmApp.person.home.createOrEditLabel"
+      >
+        Create or edit a Person
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.idMoyenSub" for="field_idMoyenSub"
+            >Id Moyen Sub</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idMoyenSub"
+            id="field_idMoyenSub"
+            data-cy="idMoyenSub"
+            formControlName="idMoyenSub"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nomPrec" for="field_nomPrec">Nom Prec</label>
+          <input type="text" class="form-control" name="nomPrec" id="field_nomPrec" data-cy="nomPrec" formControlName="nomPrec" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.lieuNaissance" for="field_lieuNaissance"
+            >Lieu Naissance</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lieuNaissance"
+            id="field_lieuNaissance"
+            data-cy="lieuNaissance"
+            formControlName="lieuNaissance"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.etatCivilWeb" for="field_etatCivilWeb"
+            >Etat Civil Web</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="etatCivilWeb"
+            id="field_etatCivilWeb"
+            data-cy="etatCivilWeb"
+            formControlName="etatCivilWeb"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nationPrec" for="field_nationPrec"
+            >Nation Prec</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nationPrec"
+            id="field_nationPrec"
+            data-cy="nationPrec"
+            formControlName="nationPrec"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nationActuel" for="field_nationActuel"
+            >Nation Actuel</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nationActuel"
+            id="field_nationActuel"
+            data-cy="nationActuel"
+            formControlName="nationActuel"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nomAutor" for="field_nomAutor">Nom Autor</label>
+          <input type="text" class="form-control" name="nomAutor" id="field_nomAutor" data-cy="nomAutor" formControlName="nomAutor" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.prenomAutor" for="field_prenomAutor"
+            >Prenom Autor</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prenomAutor"
+            id="field_prenomAutor"
+            data-cy="prenomAutor"
+            formControlName="prenomAutor"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.adresAutor" for="field_adresAutor"
+            >Adres Autor</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="adresAutor"
+            id="field_adresAutor"
+            data-cy="adresAutor"
+            formControlName="adresAutor"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.natiAutor" for="field_natiAutor"
+            >Nati Autor</label
+          >
+          <input type="number" class="form-control" name="natiAutor" id="field_natiAutor" data-cy="natiAutor" formControlName="natiAutor" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.numCin" for="field_numCin">Num Cin</label>
+          <input type="text" class="form-control" name="numCin" id="field_numCin" data-cy="numCin" formControlName="numCin" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.numDoc" for="field_numDoc">Num Doc</label>
+          <input type="text" class="form-control" name="numDoc" id="field_numDoc" data-cy="numDoc" formControlName="numDoc" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivDoc" for="field_dateDelivDoc"
+            >Date Deliv Doc</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDelivDoc"
+              data-cy="dateDelivDoc"
+              type="text"
+              class="form-control"
+              name="dateDelivDoc"
+              ngbDatepicker
+              #dateDelivDocDp="ngbDatepicker"
+              formControlName="dateDelivDoc"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDelivDocDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateExpDoc" for="field_dateExpDoc"
+            >Date Exp Doc</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateExpDoc"
+              data-cy="dateExpDoc"
+              type="text"
+              class="form-control"
+              name="dateExpDoc"
+              ngbDatepicker
+              #dateExpDocDp="ngbDatepicker"
+              formControlName="dateExpDoc"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateExpDocDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.delivParDoc" for="field_delivParDoc"
+            >Deliv Par Doc</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="delivParDoc"
+            id="field_delivParDoc"
+            data-cy="delivParDoc"
+            formControlName="delivParDoc"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.adresseDomicile" for="field_adresseDomicile"
+            >Adresse Domicile</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="adresseDomicile"
+            id="field_adresseDomicile"
+            data-cy="adresseDomicile"
+            formControlName="adresseDomicile"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.adresseEmail" for="field_adresseEmail"
+            >Adresse Email</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="adresseEmail"
+            id="field_adresseEmail"
+            data-cy="adresseEmail"
+            formControlName="adresseEmail"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.isResident" for="field_isResident"
+            >Is Resident</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isResident"
+            id="field_isResident"
+            data-cy="isResident"
+            formControlName="isResident"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.titreSejour" for="field_titreSejour"
+            >Titre Sejour</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="titreSejour"
+            id="field_titreSejour"
+            data-cy="titreSejour"
+            formControlName="titreSejour"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateExpSejour" for="field_dateExpSejour"
+            >Date Exp Sejour</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateExpSejour"
+              data-cy="dateExpSejour"
+              type="text"
+              class="form-control"
+              name="dateExpSejour"
+              ngbDatepicker
+              #dateExpSejourDp="ngbDatepicker"
+              formControlName="dateExpSejour"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateExpSejourDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.numTel" for="field_numTel">Num Tel</label>
+          <input type="text" class="form-control" name="numTel" id="field_numTel" data-cy="numTel" formControlName="numTel" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.adressEmp" for="field_adressEmp"
+            >Adress Emp</label
+          >
+          <input type="text" class="form-control" name="adressEmp" id="field_adressEmp" data-cy="adressEmp" formControlName="adressEmp" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.telEmp" for="field_telEmp">Tel Emp</label>
+          <input type="text" class="form-control" name="telEmp" id="field_telEmp" data-cy="telEmp" formControlName="telEmp" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nomEtab" for="field_nomEtab">Nom Etab</label>
+          <input type="text" class="form-control" name="nomEtab" id="field_nomEtab" data-cy="nomEtab" formControlName="nomEtab" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.adressEtablis" for="field_adressEtablis"
+            >Adress Etablis</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="adressEtablis"
+            id="field_adressEtablis"
+            data-cy="adressEtablis"
+            formControlName="adressEtablis"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dureeSejour" for="field_dureeSejour"
+            >Duree Sejour</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="dureeSejour"
+            id="field_dureeSejour"
+            data-cy="dureeSejour"
+            formControlName="dureeSejour"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.etatMemDes" for="field_etatMemDes"
+            >Etat Mem Des</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="etatMemDes"
+            id="field_etatMemDes"
+            data-cy="etatMemDes"
+            formControlName="etatMemDes"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.etatMemPremier" for="field_etatMemPremier"
+            >Etat Mem Premier</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="etatMemPremier"
+            id="field_etatMemPremier"
+            data-cy="etatMemPremier"
+            formControlName="etatMemPremier"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nombreEntre" for="field_nombreEntre"
+            >Nombre Entre</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombreEntre"
+            id="field_nombreEntre"
+            data-cy="nombreEntre"
+            formControlName="nombreEntre"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.oldVisaExiste" for="field_oldVisaExiste"
+            >Old Visa Existe</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="oldVisaExiste"
+            id="field_oldVisaExiste"
+            data-cy="oldVisaExiste"
+            formControlName="oldVisaExiste"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivDebut" for="field_dateDelivDebut"
+            >Date Deliv Debut</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDelivDebut"
+              data-cy="dateDelivDebut"
+              type="text"
+              class="form-control"
+              name="dateDelivDebut"
+              ngbDatepicker
+              #dateDelivDebutDp="ngbDatepicker"
+              formControlName="dateDelivDebut"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDelivDebutDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivFin" for="field_dateDelivFin"
+            >Date Deliv Fin</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDelivFin"
+              data-cy="dateDelivFin"
+              type="text"
+              class="form-control"
+              name="dateDelivFin"
+              ngbDatepicker
+              #dateDelivFinDp="ngbDatepicker"
+              formControlName="dateDelivFin"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDelivFinDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.isEmprDegit" for="field_isEmprDegit"
+            >Is Empr Degit</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isEmprDegit"
+            id="field_isEmprDegit"
+            data-cy="isEmprDegit"
+            formControlName="isEmprDegit"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateEmpreint" for="field_dateEmpreint"
+            >Date Empreint</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEmpreint"
+              data-cy="dateEmpreint"
+              type="text"
+              class="form-control"
+              name="dateEmpreint"
+              ngbDatepicker
+              #dateEmpreintDp="ngbDatepicker"
+              formControlName="dateEmpreint"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEmpreintDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateDelivAutor" for="field_dateDelivAutor"
+            >Date Deliv Autor</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDelivAutor"
+              data-cy="dateDelivAutor"
+              type="text"
+              class="form-control"
+              name="dateDelivAutor"
+              ngbDatepicker
+              #dateDelivAutorDp="ngbDatepicker"
+              formControlName="dateDelivAutor"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDelivAutorDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.person.dateValideAtorDebut"
+            for="field_dateValideAtorDebut"
+            >Date Valide Ator Debut</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateValideAtorDebut"
+              data-cy="dateValideAtorDebut"
+              type="text"
+              class="form-control"
+              name="dateValideAtorDebut"
+              ngbDatepicker
+              #dateValideAtorDebutDp="ngbDatepicker"
+              formControlName="dateValideAtorDebut"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateValideAtorDebutDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.person.dateValideAutorFin"
+            for="field_dateValideAutorFin"
+            >Date Valide Autor Fin</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateValideAutorFin"
+              data-cy="dateValideAutorFin"
+              type="text"
+              class="form-control"
+              name="dateValideAutorFin"
+              ngbDatepicker
+              #dateValideAutorFinDp="ngbDatepicker"
+              formControlName="dateValideAutorFin"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateValideAutorFinDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateArrivPrevu" for="field_dateArrivPrevu"
+            >Date Arriv Prevu</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateArrivPrevu"
+              data-cy="dateArrivPrevu"
+              type="text"
+              class="form-control"
+              name="dateArrivPrevu"
+              ngbDatepicker
+              #dateArrivPrevuDp="ngbDatepicker"
+              formControlName="dateArrivPrevu"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateArrivPrevuDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateDepartPrevu" for="field_dateDepartPrevu"
+            >Date Depart Prevu</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDepartPrevu"
+              data-cy="dateDepartPrevu"
+              type="text"
+              class="form-control"
+              name="dateDepartPrevu"
+              ngbDatepicker
+              #dateDepartPrevuDp="ngbDatepicker"
+              formControlName="dateDepartPrevu"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDepartPrevuDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descInvite" for="field_descInvite"
+            >Desc Invite</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descInvite"
+            id="field_descInvite"
+            data-cy="descInvite"
+            formControlName="descInvite"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.adresseInvit" for="field_adresseInvit"
+            >Adresse Invit</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="adresseInvit"
+            id="field_adresseInvit"
+            data-cy="adresseInvit"
+            formControlName="adresseInvit"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.telInvite" for="field_telInvite"
+            >Tel Invite</label
+          >
+          <input type="text" class="form-control" name="telInvite" id="field_telInvite" data-cy="telInvite" formControlName="telInvite" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.emailInvite" for="field_emailInvite"
+            >Email Invite</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="emailInvite"
+            id="field_emailInvite"
+            data-cy="emailInvite"
+            formControlName="emailInvite"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nomEntreprise" for="field_nomEntreprise"
+            >Nom Entreprise</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomEntreprise"
+            id="field_nomEntreprise"
+            data-cy="nomEntreprise"
+            formControlName="nomEntreprise"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.adresseEntreprise" for="field_adresseEntreprise"
+            >Adresse Entreprise</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="adresseEntreprise"
+            id="field_adresseEntreprise"
+            data-cy="adresseEntreprise"
+            formControlName="adresseEntreprise"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.contactEntreprise" for="field_contactEntreprise"
+            >Contact Entreprise</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactEntreprise"
+            id="field_contactEntreprise"
+            data-cy="contactEntreprise"
+            formControlName="contactEntreprise"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.person.descContactEntreprise"
+            for="field_descContactEntreprise"
+            >Desc Contact Entreprise</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descContactEntreprise"
+            id="field_descContactEntreprise"
+            data-cy="descContactEntreprise"
+            formControlName="descContactEntreprise"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="almavivaVisaServiceCrmApp.person.financeFraisVoyage"
+            for="field_financeFraisVoyage"
+            >Finance Frais Voyage</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financeFraisVoyage"
+            id="field_financeFraisVoyage"
+            data-cy="financeFraisVoyage"
+            formControlName="financeFraisVoyage"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nomCit" for="field_nomCit">Nom Cit</label>
+          <input type="text" class="form-control" name="nomCit" id="field_nomCit" data-cy="nomCit" formControlName="nomCit" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.prenomCit" for="field_prenomCit"
+            >Prenom Cit</label
+          >
+          <input type="text" class="form-control" name="prenomCit" id="field_prenomCit" data-cy="prenomCit" formControlName="prenomCit" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateNaissCit" for="field_dateNaissCit"
+            >Date Naiss Cit</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateNaissCit"
+              data-cy="dateNaissCit"
+              type="text"
+              class="form-control"
+              name="dateNaissCit"
+              ngbDatepicker
+              #dateNaissCitDp="ngbDatepicker"
+              formControlName="dateNaissCit"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateNaissCitDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nationCit" for="field_nationCit"
+            >Nation Cit</label
+          >
+          <input type="number" class="form-control" name="nationCit" id="field_nationCit" data-cy="nationCit" formControlName="nationCit" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.numDocCit" for="field_numDocCit"
+            >Num Doc Cit</label
+          >
+          <input type="text" class="form-control" name="numDocCit" id="field_numDocCit" data-cy="numDocCit" formControlName="numDocCit" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.lieuForm" for="field_lieuForm">Lieu Form</label>
+          <input type="text" class="form-control" name="lieuForm" id="field_lieuForm" data-cy="lieuForm" formControlName="lieuForm" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateForm" for="field_dateForm">Date Form</label>
+          <div class="input-group">
+            <input
+              id="field_dateForm"
+              data-cy="dateForm"
+              type="text"
+              class="form-control"
+              name="dateForm"
+              ngbDatepicker
+              #dateFormDp="ngbDatepicker"
+              formControlName="dateForm"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateFormDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descPhotoForm" for="field_descPhotoForm"
+            >Desc Photo Form</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descPhotoForm"
+            id="field_descPhotoForm"
+            data-cy="descPhotoForm"
+            formControlName="descPhotoForm"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descForm1" for="field_descForm1"
+            >Desc Form 1</label
+          >
+          <input type="text" class="form-control" name="descForm1" id="field_descForm1" data-cy="descForm1" formControlName="descForm1" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descForm2" for="field_descForm2"
+            >Desc Form 2</label
+          >
+          <input type="text" class="form-control" name="descForm2" id="field_descForm2" data-cy="descForm2" formControlName="descForm2" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.emailComp" for="field_emailComp"
+            >Email Comp</label
+          >
+          <input type="text" class="form-control" name="emailComp" id="field_emailComp" data-cy="emailComp" formControlName="emailComp" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nomForm" for="field_nomForm">Nom Form</label>
+          <input type="text" class="form-control" name="nomForm" id="field_nomForm" data-cy="nomForm" formControlName="nomForm" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.prenomForm" for="field_prenomForm"
+            >Prenom Form</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prenomForm"
+            id="field_prenomForm"
+            data-cy="prenomForm"
+            formControlName="prenomForm"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.idPaysForm" for="field_idPaysForm"
+            >Id Pays Form</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="idPaysForm"
+            id="field_idPaysForm"
+            data-cy="idPaysForm"
+            formControlName="idPaysForm"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descForm3" for="field_descForm3"
+            >Desc Form 3</label
+          >
+          <input type="text" class="form-control" name="descForm3" id="field_descForm3" data-cy="descForm3" formControlName="descForm3" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descForm4" for="field_descForm4"
+            >Desc Form 4</label
+          >
+          <input type="text" class="form-control" name="descForm4" id="field_descForm4" data-cy="descForm4" formControlName="descForm4" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.autreetatcivil" for="field_autreetatcivil"
+            >Autreetatcivil</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="autreetatcivil"
+            id="field_autreetatcivil"
+            data-cy="autreetatcivil"
+            formControlName="autreetatcivil"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.autredoc" for="field_autredoc">Autredoc</label>
+          <input type="text" class="form-control" name="autredoc" id="field_autredoc" data-cy="autredoc" formControlName="autredoc" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.autreobj" for="field_autreobj">Autreobj</label>
+          <input type="text" class="form-control" name="autreobj" id="field_autreobj" data-cy="autreobj" formControlName="autreobj" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.autrefris" for="field_autrefris"
+            >Autrefris</label
+          >
+          <input type="text" class="form-control" name="autrefris" id="field_autrefris" data-cy="autrefris" formControlName="autrefris" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descpromot" for="field_descpromot"
+            >Descpromot</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descpromot"
+            id="field_descpromot"
+            data-cy="descpromot"
+            formControlName="descpromot"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.descinvit" for="field_descinvit"
+            >Descinvit</label
+          >
+          <input type="text" class="form-control" name="descinvit" id="field_descinvit" data-cy="descinvit" formControlName="descinvit" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.isVisa" for="field_isVisa">Is Visa</label>
+          <input type="checkbox" class="form-check" name="isVisa" id="field_isVisa" data-cy="isVisa" formControlName="isVisa" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.dateaut" for="field_dateaut">Dateaut</label>
+          <div class="input-group">
+            <input
+              id="field_dateaut"
+              data-cy="dateaut"
+              type="text"
+              class="form-control"
+              name="dateaut"
+              ngbDatepicker
+              #dateautDp="ngbDatepicker"
+              formControlName="dateaut"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateautDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.datecreatefo" for="field_datecreatefo"
+            >Datecreatefo</label
+          >
+          <div class="input-group">
+            <input
+              id="field_datecreatefo"
+              data-cy="datecreatefo"
+              type="text"
+              class="form-control"
+              name="datecreatefo"
+              ngbDatepicker
+              #datecreatefoDp="ngbDatepicker"
+              formControlName="datecreatefo"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="datecreatefoDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.telForm" for="field_telForm">Tel Form</label>
+          <input type="text" class="form-control" name="telForm" id="field_telForm" data-cy="telForm" formControlName="telForm" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.professionForm" for="field_professionForm"
+            >Profession Form</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="professionForm"
+            id="field_professionForm"
+            data-cy="professionForm"
+            formControlName="professionForm"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.referenceForm" for="field_referenceForm"
+            >Reference Form</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="referenceForm"
+            id="field_referenceForm"
+            data-cy="referenceForm"
+            formControlName="referenceForm"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.otherNation" for="field_otherNation"
+            >Other Nation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="otherNation"
+            id="field_otherNation"
+            data-cy="otherNation"
+            formControlName="otherNation"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.telAutori" for="field_telAutori"
+            >Tel Autori</label
+          >
+          <input type="text" class="form-control" name="telAutori" id="field_telAutori" data-cy="telAutori" formControlName="telAutori" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.emailAutori" for="field_emailAutori"
+            >Email Autori</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="emailAutori"
+            id="field_emailAutori"
+            data-cy="emailAutori"
+            formControlName="emailAutori"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.numSejour" for="field_numSejour"
+            >Num Sejour</label
+          >
+          <input type="text" class="form-control" name="numSejour" id="field_numSejour" data-cy="numSejour" formControlName="numSejour" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.nomEmp" for="field_nomEmp">Nom Emp</label>
+          <input type="text" class="form-control" name="nomEmp" id="field_nomEmp" data-cy="nomEmp" formControlName="nomEmp" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.numEmp" for="field_numEmp">Num Emp</label>
+          <input type="text" class="form-control" name="numEmp" id="field_numEmp" data-cy="numEmp" formControlName="numEmp" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.villeDestination" for="field_villeDestination"
+            >Ville Destination</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="villeDestination"
+            id="field_villeDestination"
+            data-cy="villeDestination"
+            formControlName="villeDestination"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.infoObjeVoyage" for="field_infoObjeVoyage"
+            >Info Obje Voyage</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="infoObjeVoyage"
+            id="field_infoObjeVoyage"
+            data-cy="infoObjeVoyage"
+            formControlName="infoObjeVoyage"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.autoDelivrePar" for="field_autoDelivrePar"
+            >Auto Delivre Par</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="autoDelivrePar"
+            id="field_autoDelivrePar"
+            data-cy="autoDelivrePar"
+            formControlName="autoDelivrePar"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.otherMoyen" for="field_otherMoyen"
+            >Other Moyen</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="otherMoyen"
+            id="field_otherMoyen"
+            data-cy="otherMoyen"
+            formControlName="otherMoyen"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.otherLien" for="field_otherLien"
+            >Other Lien</label
+          >
+          <input type="text" class="form-control" name="otherLien" id="field_otherLien" data-cy="otherLien" formControlName="otherLien" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.faxInvite" for="field_faxInvite"
+            >Fax Invite</label
+          >
+          <input type="text" class="form-control" name="faxInvite" id="field_faxInvite" data-cy="faxInvite" formControlName="faxInvite" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.faxEntreprise" for="field_faxEntreprise"
+            >Fax Entreprise</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="faxEntreprise"
+            id="field_faxEntreprise"
+            data-cy="faxEntreprise"
+            formControlName="faxEntreprise"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.natActuel" for="field_natActuel"
+            >Nat Actuel</label
+          >
+          <input type="text" class="form-control" name="natActuel" id="field_natActuel" data-cy="natActuel" formControlName="natActuel" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.natDiffer" for="field_natDiffer"
+            >Nat Differ</label
+          >
+          <input type="text" class="form-control" name="natDiffer" id="field_natDiffer" data-cy="natDiffer" formControlName="natDiffer" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.natMineur" for="field_natMineur"
+            >Nat Mineur</label
+          >
+          <input type="text" class="form-control" name="natMineur" id="field_natMineur" data-cy="natMineur" formControlName="natMineur" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.natCitoyen" for="field_natCitoyen"
+            >Nat Citoyen</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="natCitoyen"
+            id="field_natCitoyen"
+            data-cy="natCitoyen"
+            formControlName="natCitoyen"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysub1" for="field_moysub1">Moysub 1</label>
+          <input type="checkbox" class="form-check" name="moysub1" id="field_moysub1" data-cy="moysub1" formControlName="moysub1" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysub2" for="field_moysub2">Moysub 2</label>
+          <input type="checkbox" class="form-check" name="moysub2" id="field_moysub2" data-cy="moysub2" formControlName="moysub2" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysub3" for="field_moysub3">Moysub 3</label>
+          <input type="checkbox" class="form-check" name="moysub3" id="field_moysub3" data-cy="moysub3" formControlName="moysub3" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysub4" for="field_moysub4">Moysub 4</label>
+          <input type="checkbox" class="form-check" name="moysub4" id="field_moysub4" data-cy="moysub4" formControlName="moysub4" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysub5" for="field_moysub5">Moysub 5</label>
+          <input type="checkbox" class="form-check" name="moysub5" id="field_moysub5" data-cy="moysub5" formControlName="moysub5" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysub8" for="field_moysub8">Moysub 8</label>
+          <input type="checkbox" class="form-check" name="moysub8" id="field_moysub8" data-cy="moysub8" formControlName="moysub8" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs1" for="field_moysubs1">Moysubs 1</label>
+          <input type="checkbox" class="form-check" name="moysubs1" id="field_moysubs1" data-cy="moysubs1" formControlName="moysubs1" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs5" for="field_moysubs5">Moysubs 5</label>
+          <input type="checkbox" class="form-check" name="moysubs5" id="field_moysubs5" data-cy="moysubs5" formControlName="moysubs5" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs6" for="field_moysubs6">Moysubs 6</label>
+          <input type="checkbox" class="form-check" name="moysubs6" id="field_moysubs6" data-cy="moysubs6" formControlName="moysubs6" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs7" for="field_moysubs7">Moysubs 7</label>
+          <input type="checkbox" class="form-check" name="moysubs7" id="field_moysubs7" data-cy="moysubs7" formControlName="moysubs7" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.moysubs8" for="field_moysubs8">Moysubs 8</label>
+          <input type="checkbox" class="form-check" name="moysubs8" id="field_moysubs8" data-cy="moysubs8" formControlName="moysubs8" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.autreFrais" for="field_autreFrais"
+            >Autre Frais</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="autreFrais"
+            id="field_autreFrais"
+            data-cy="autreFrais"
+            formControlName="autreFrais"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.etatCivil" for="field_etatCivil"
+            >Etat Civil</label
+          >
+          <input type="number" class="form-control" name="etatCivil" id="field_etatCivil" data-cy="etatCivil" formControlName="etatCivil" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.idLienF" for="field_idLienF">Id Lien F</label>
+          <input type="number" class="form-control" name="idLienF" id="field_idLienF" data-cy="idLienF" formControlName="idLienF" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.objPerson" for="field_objPerson"
+            >Obj Person</label
+          >
+          <input type="number" class="form-control" name="objPerson" id="field_objPerson" data-cy="objPerson" formControlName="objPerson" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.idSexeAvs" for="field_idSexeAvs"
+            >Id Sexe Avs</label
+          >
+          <input type="number" class="form-control" name="idSexeAvs" id="field_idSexeAvs" data-cy="idSexeAvs" formControlName="idSexeAvs" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.typeDocV" for="field_typeDocV">Type Doc V</label>
+          <input type="number" class="form-control" name="typeDocV" id="field_typeDocV" data-cy="typeDocV" formControlName="typeDocV" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.typeFinance" for="field_typeFinance"
+            >Type Finance</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="typeFinance"
+            id="field_typeFinance"
+            data-cy="typeFinance"
+            formControlName="typeFinance"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.deleted" for="field_deleted">Deleted</label>
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.person.folder" for="field_folder">Folder</label>
+          <select class="form-control" id="field_folder" data-cy="folder" name="folder" formControlName="folder">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="folderOption.id === editForm.get('folder')!.value?.id ? editForm.get('folder')!.value : folderOption"
+              *ngFor="let folderOption of foldersCollection; trackBy: trackFolderById"
+            >
+              {{ folderOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

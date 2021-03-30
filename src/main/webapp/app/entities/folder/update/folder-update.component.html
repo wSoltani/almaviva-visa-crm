@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-folder-heading"
+        data-cy="FolderCreateUpdateHeading"
+        jhiTranslate="almavivaVisaServiceCrmApp.folder.home.createOrEditLabel"
+      >
+        Create or edit a Folder
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.folderId" for="field_folderId">Folder Id</label>
+          <input type="number" class="form-control" name="folderId" id="field_folderId" data-cy="folderId" formControlName="folderId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.paymentMethod" for="field_paymentMethod"
+            >Payment Method</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentMethod"
+            id="field_paymentMethod"
+            data-cy="paymentMethod"
+            formControlName="paymentMethod"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.waitingRoom" for="field_waitingRoom"
+            >Waiting Room</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="waitingRoom"
+            id="field_waitingRoom"
+            data-cy="waitingRoom"
+            formControlName="waitingRoom"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.serviceType" for="field_serviceType"
+            >Service Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="serviceType"
+            id="field_serviceType"
+            data-cy="serviceType"
+            formControlName="serviceType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.isAvsFree" for="field_isAvsFree"
+            >Is Avs Free</label
+          >
+          <input type="checkbox" class="form-check" name="isAvsFree" id="field_isAvsFree" data-cy="isAvsFree" formControlName="isAvsFree" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.deleted" for="field_deleted">Deleted</label>
+          <input type="checkbox" class="form-check" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.appointment" for="field_appointment"
+            >Appointment</label
+          >
+          <select class="form-control" id="field_appointment" data-cy="appointment" name="appointment" formControlName="appointment">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                appointmentOption.id === editForm.get('appointment')!.value?.id ? editForm.get('appointment')!.value : appointmentOption
+              "
+              *ngFor="let appointmentOption of appointmentsCollection; trackBy: trackAppointmentById"
+            >
+              {{ appointmentOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.site" for="field_site">Site</label>
+          <select class="form-control" id="field_site" data-cy="site" name="site" formControlName="site">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="siteOption.id === editForm.get('site')!.value?.id ? editForm.get('site')!.value : siteOption"
+              *ngFor="let siteOption of sitesSharedCollection; trackBy: trackSiteById"
+            >
+              {{ siteOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="almavivaVisaServiceCrmApp.folder.service" for="field_services">Service</label>
+          <select class="form-control" id="field_services" data-cy="service" multiple name="services" formControlName="services">
+            <option
+              [ngValue]="getSelectedAVService(aVServiceOption, editForm.get('services')!.value)"
+              *ngFor="let aVServiceOption of aVServicesSharedCollection; trackBy: trackAVServiceById"
+            >
+              {{ aVServiceOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="almavivaVisaServiceCrmApp.folder.visa" for="field_visa">Visa</label>
+          <select class="form-control" id="field_visa" data-cy="visa" name="visa" formControlName="visa">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="visaOption.id === editForm.get('visa')!.value?.id ? editForm.get('visa')!.value : visaOption"
+              *ngFor="let visaOption of visasSharedCollection; trackBy: trackVisaById"
+            >
+              {{ visaOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

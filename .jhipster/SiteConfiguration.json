@@ -1,0 +1,79 @@
+{
+  "name": "SiteConfiguration",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "openingTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "closingTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "appointmentTime",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "appointmentQuota",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "appointmentQuotaWeb",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "information",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dailyMessage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prestationMargin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "simultaneous",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isSpecific",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "site",
+      "otherEntityRelationshipName": "siteConfiguration",
+      "relationshipName": "site"
+    }
+  ],
+  "entityTableName": "site_configuration",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210330132257"
+}

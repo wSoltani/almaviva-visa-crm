@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="visaDocuments">
+      <h2 data-cy="visaDocumentsDetailsHeading">
+        <span jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.detail.title">Visa Documents</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.id">Id</span></dt>
+        <dd>
+          <span>{{ visaDocuments.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.title">Title</span></dt>
+        <dd>
+          <span>{{ visaDocuments.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.description">Description</span></dt>
+        <dd>
+          <span>{{ visaDocuments.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.deleted">Deleted</span></dt>
+        <dd>
+          <span>{{ visaDocuments.deleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="almavivaVisaServiceCrmApp.visaDocuments.visa">Visa</span></dt>
+        <dd>
+          <span *ngFor="let visa of visaDocuments.visas; let last = last">
+            <a [routerLink]="['/visa', visa?.id, 'view']">{{ visa.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/visa-documents', visaDocuments.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

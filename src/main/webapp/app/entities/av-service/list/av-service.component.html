@@ -1,0 +1,119 @@
+<div>
+  <h2 id="page-heading" data-cy="AVServiceHeading">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.aVService.home.title">AV Services</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="almavivaVisaServiceCrmApp.aVService.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-av-service"
+        [routerLink]="['/av-service/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="almavivaVisaServiceCrmApp.aVService.home.createLabel"> Create a new AV Service </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form name="searchForm" class="form-inline">
+        <div class="input-group w-100 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="currentSearch"
+            id="currentSearch"
+            name="currentSearch"
+            placeholder="{{ 'almavivaVisaServiceCrmApp.aVService.home.search' | translate }}"
+          />
+
+          <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+            <fa-icon icon="search"></fa-icon>
+          </button>
+
+          <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="aVServices?.length === 0">
+    <span jhiTranslate="almavivaVisaServiceCrmApp.aVService.home.notFound">No aVServices found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="aVServices && aVServices.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.id">Id</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.price">Price</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.quantity">Quantity</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.isPrincipal">Is Principal</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.deleted">Deleted</span></th>
+          <th scope="col"><span jhiTranslate="almavivaVisaServiceCrmApp.aVService.site">Site</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aVService of aVServices; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/av-service', aVService.id, 'view']">{{ aVService.id }}</a>
+          </td>
+          <td>{{ aVService.title }}</td>
+          <td>{{ aVService.description }}</td>
+          <td>{{ aVService.price }}</td>
+          <td>{{ aVService.quantity }}</td>
+          <td>{{ aVService.isPrincipal }}</td>
+          <td>{{ aVService.deleted }}</td>
+          <td>
+            <div *ngIf="aVService.site">
+              <a [routerLink]="['/site', aVService.site?.id, 'view']">{{ aVService.site?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/av-service', aVService.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/av-service', aVService.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(aVService)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+id;code;location;amount;date;is_avs_paiment;deleted
+1;70827;multi-byte one-to-one;71449;2021-03-30;false;false
+2;84996;Granite Exclusive;60104;2021-03-29;false;false
+3;85678;bypass connect b;84067;2021-03-30;true;false
+4;87327;Generic;9814;2021-03-30;false;true
+5;76928;programming Aquitaine Baby;8336;2021-03-29;true;true
+6;66587;deposit upward-trending;35342;2021-03-30;false;true
+7;9446;parsing b;56575;2021-03-30;false;true
+8;3237;b;24682;2021-03-30;true;false
+9;44116;Montmorency;44939;2021-03-30;false;true
+10;55255;Granite;79407;2021-03-29;false;true

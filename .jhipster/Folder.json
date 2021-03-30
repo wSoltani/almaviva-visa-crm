@@ -1,0 +1,76 @@
+{
+  "name": "Folder",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "folderId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentMethod",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "waitingRoom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serviceType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isAvsFree",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "appointment",
+      "otherEntityRelationshipName": "folder",
+      "relationshipName": "appointment",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "site",
+      "otherEntityRelationshipName": "folder",
+      "relationshipName": "site"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "aVService",
+      "otherEntityRelationshipName": "folder",
+      "relationshipName": "service",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "visa",
+      "otherEntityRelationshipName": "folder",
+      "relationshipName": "visa"
+    }
+  ],
+  "entityTableName": "folder",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210330132259"
+}
